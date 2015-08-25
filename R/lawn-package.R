@@ -5,6 +5,9 @@
 #' coordinates. See \url{http://geojson.io/} for a tool to easily create GeoJSON
 #' in a browser.
 #'
+#' @importFrom methods is
+#' @importFrom stats setNames
+#' @importFrom utils head
 #' @name lawn-package
 #' @aliases lawn
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}

@@ -204,6 +204,7 @@ hr {
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{lawn introduction}
+%\VignetteEncoding{UTF-8}
 -->
 
 <h1>lawn introduction</h1>
@@ -239,22 +240,10 @@ hr {
 <p>Point</p>
 
 <pre><code class="r">lawn_point(c(-74.5, 40))
-#&gt; $type
-#&gt; [1] &quot;Feature&quot;
-#&gt; 
-#&gt; $geometry
-#&gt; $geometry$type
-#&gt; [1] &quot;Point&quot;
-#&gt; 
-#&gt; $geometry$coordinates
-#&gt; [1] -74.5  40.0
-#&gt; 
-#&gt; 
-#&gt; $properties
-#&gt; named list()
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;point&quot;
+#&gt; &lt;Point&gt;
+#&gt;   Bounding box: -74.5 40.0 -74.5 40.0
+#&gt;   Coordinates: -74.5 40.0
+#&gt;   Properties: NULL
 </code></pre>
 
 <p>Polygon</p>
@@ -267,31 +256,10 @@ hr {
   c(-2.275543, 53.464547)
 ))
 lawn_polygon(rings)
-#&gt; $type
-#&gt; [1] &quot;Feature&quot;
-#&gt; 
-#&gt; $geometry
-#&gt; $geometry$type
-#&gt; [1] &quot;Polygon&quot;
-#&gt; 
-#&gt; $geometry$coordinates
-#&gt; , , 1
-#&gt; 
-#&gt;           [,1]      [,2]      [,3]      [,4]      [,5]
-#&gt; [1,] -2.275543 -2.275543 -2.215118 -2.215118 -2.275543
-#&gt; 
-#&gt; , , 2
-#&gt; 
-#&gt;          [,1]     [,2]     [,3]     [,4]     [,5]
-#&gt; [1,] 53.46455 53.48927 53.48927 53.46455 53.46455
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; $properties
-#&gt; named list()
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;polygon&quot;
+#&gt; &lt;Polygon&gt;
+#&gt;   Bounding box: -2.3 53.5 -2.2 53.5
+#&gt;   No. points: 5
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>count</h2>
@@ -299,19 +267,11 @@ lawn_polygon(rings)
 <p>Count number of points within polygons</p>
 
 <pre><code class="r">lawn_count(polygons = lawn_data$polygons_count, points = lawn_data$points_count)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type pt_count geometry.type
-#&gt; 1 Feature        2       Polygon
-#&gt; 2 Feature        0       Polygon
-#&gt;                                                                                           geometry.coordinates
-#&gt; 1 -112.07239, -112.07239, -112.02810, -112.02810, -112.07239, 46.58659, 46.61761, 46.61761, 46.58659, 46.58659
-#&gt; 2 -112.02398, -112.02398, -111.96613, -111.96613, -112.02398, 46.57043, 46.61502, 46.61502, 46.57043, 46.57043
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: -112.1 46.6 -112.0 46.6
+#&gt;   No. features: 2
+#&gt;   No. points: 20
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>average</h2>
@@ -321,19 +281,11 @@ lawn_polygon(rings)
 <pre><code class="r">lawn_average(polygons = lawn_data$polygons_average,
              points = lawn_data$points_average,
              field = &#39;population&#39;)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type average geometry.type
-#&gt; 1 Feature     300       Polygon
-#&gt; 2 Feature     250       Polygon
-#&gt;                                                                                 geometry.coordinates
-#&gt; 1 10.66635, 10.66635, 10.76248, 10.76248, 10.66635, 59.89066, 59.93678, 59.93678, 59.89066, 59.89066
-#&gt; 2 10.76454, 10.76454, 10.86617, 10.86617, 10.76454, 59.88928, 59.93713, 59.93713, 59.88928, 59.88928
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: 10.7 59.9 10.9 59.9
+#&gt;   No. features: 2
+#&gt;   No. points: 20
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>distance</h2>
@@ -367,32 +319,19 @@ to &lt;- &#39;{
 <h2>random set of points</h2>
 
 <pre><code class="r">lawn_random(n = 2)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type geometry.type geometry.coordinates
-#&gt; 1 Feature         Point  -57.59454, 19.33782
-#&gt; 2 Feature         Point 9.649159, -24.151190
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: -7.0 -56.4 149.0 -41.1
+#&gt;   No. features: 2
+#&gt;   No. points: 4
+#&gt;   Properties: NULL
 </code></pre>
 
 <pre><code class="r">lawn_random(n = 5)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type geometry.type  geometry.coordinates
-#&gt; 1 Feature         Point -129.19505, -45.57817
-#&gt; 2 Feature         Point   118.87442, 28.94969
-#&gt; 3 Feature         Point  -133.65880, 26.14595
-#&gt; 4 Feature         Point  -63.48161, -78.71907
-#&gt; 5 Feature         Point   8.208663, 31.347472
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: -115.1 -49.5 150.3 37.0
+#&gt;   No. features: 5
+#&gt;   No. points: 10
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>random features with geojson-random</h2>
@@ -400,80 +339,54 @@ to &lt;- &#39;{
 <p>Positions</p>
 
 <pre><code class="r">gr_position()
-#&gt; [1] -13.98266  16.81496
+#&gt; [1] -12.31245  16.80933
 </code></pre>
 
 <p>Points</p>
 
 <pre><code class="r">gr_point(2)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type geometry.type  geometry.coordinates
-#&gt; 1 Feature         Point -89.365314, -6.577021
-#&gt; 2 Feature         Point  147.51072, -36.05571
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: -57.7 -86.9 70.3 1.9
+#&gt;   No. features: 2
+#&gt;   No. points: 4
+#&gt;   Properties: NULL
 </code></pre>
 
 <p>Polygons</p>
 
 <pre><code class="r">gr_polygon(n = 1, vertices = 5, max_radial_length = 5)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type geometry.type
-#&gt; 1 Feature       Polygon
-#&gt;                                                                                                                 geometry.coordinates
-#&gt; 1 -64.14027, -65.06539, -63.49399, -66.47064, -67.25660, -64.14027, -15.60968, -16.67584, -20.31435, -21.93198, -15.58848, -15.60968
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: -87.7 1.8 -83.3 3.3
+#&gt;   No. features: 1
+#&gt;   No. points: 12
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>sample from a FeatureCollection</h2>
 
 <pre><code class="r">dat &lt;- lawn_data$points_average
 lawn_sample(dat, 1)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type population geometry.type geometry.coordinates
-#&gt; 1 Feature        200         Point   10.80643, 59.90891
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: 10.7 59.9 10.7 59.9
+#&gt;   No. features: 1
+#&gt;   No. points: 2
+#&gt;   Properties: NULL
 </code></pre>
 
 <pre><code class="r">lawn_sample(dat, 2)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type population geometry.type geometry.coordinates
-#&gt; 1 Feature        300         Point   10.79544, 59.93162
-#&gt; 2 Feature        200         Point   10.80643, 59.90891
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: 10.7 59.9 10.7 59.9
+#&gt;   No. features: 2
+#&gt;   No. points: 4
+#&gt;   Properties: NULL
 </code></pre>
 
 <pre><code class="r">lawn_sample(dat, 3)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type population geometry.type geometry.coordinates
-#&gt; 1 Feature        200         Point   10.72403, 59.92681
-#&gt; 2 Feature        100         Point   10.74600, 59.90857
-#&gt; 3 Feature        600         Point   10.71579, 59.90478
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: 10.7 59.9 10.8 59.9
+#&gt;   No. features: 3
+#&gt;   No. points: 6
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>extent</h2>
@@ -485,16 +398,11 @@ lawn_sample(dat, 1)
 <h2>within</h2>
 
 <pre><code class="r">lawn_within(lawn_data$points_within, lawn_data$polygons_within)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type geometry.type geometry.coordinates
-#&gt; 1 Feature         Point   -46.6318, -23.5523
-#&gt; 2 Feature         Point     -46.643, -23.557
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: -46.6 -23.6 -46.6 -23.6
+#&gt;   No. features: 2
+#&gt;   No. points: 4
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>buffer</h2>
@@ -514,17 +422,11 @@ lawn_sample(dat, 1)
    }
 }&#39;
 lawn_buffer(dat, 1, &quot;miles&quot;)
-#&gt; $type
-#&gt; [1] &quot;FeatureCollection&quot;
-#&gt; 
-#&gt; $features
-#&gt;      type geometry.type
-#&gt; 1 Feature       Polygon
-#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           geometry.coordinates
-#&gt; 1 -112.07239, -112.07522, -112.07793, -112.08044, -112.08263, -112.08443, -112.08577, -112.08660, -112.08687, -112.08687, -112.08660, -112.08577, -112.08443, -112.08263, -112.08044, -112.07793, -112.07522, -112.07239, -112.02810, -112.02528, -112.02256, -112.02006, -112.01786, -112.01606, -112.01472, -112.01390, -112.01362, -112.01362, -112.01390, -112.01472, -112.01606, -112.01786, -112.02006, -112.02256, -112.02528, -112.02810, -112.07239, 46.57211, 46.57239, 46.57321, 46.57455, 46.57635, 46.57854, 46.58105, 46.58377, 46.58659, 46.61761, 46.62044, 46.62315, 46.62566, 46.62785, 46.62965, 46.63099, 46.63181, 46.63209, 46.63209, 46.63181, 46.63099, 46.62965, 46.62785, 46.62566, 46.62315, 46.62044, 46.61761, 46.58659, 46.58377, 46.58105, 46.57854, 46.57635, 46.57455, 46.57321, 46.57239, 46.57211, 46.57211
-#&gt; 
-#&gt; attr(,&quot;class&quot;)
-#&gt; [1] &quot;featurecollection&quot;
+#&gt; &lt;FeatureCollection&gt;
+#&gt;   Bounding box: -112.1 46.6 -112.0 46.6
+#&gt;   No. features: 1
+#&gt;   No. points: 74
+#&gt;   Properties: NULL
 </code></pre>
 
 <h2>lint input geojson</h2>
