@@ -6,7 +6,7 @@ Description: Client for 'Turfjs' (http://turfjs.org/) for
     measuring aspects of 'GeoJSON', and combining, transforming,
     and creating random 'GeoJSON' data objects.
 Type: Package
-Version: 0.1.6
+Version: 0.1.7
 License: MIT + file LICENSE
 Authors@R: c(
     person("Scott", "Chamberlain", role = c("aut", "cre"), email = "myrmecocystus@gmail.com"),
@@ -17,13 +17,13 @@ BugReports: http://www.github.com/ropensci/lawn/issues
 LazyData: true
 VignetteBuilder: knitr
 Imports: methods, stats, utils, V8, jsonlite, magrittr
-Suggests: testthat, knitr, leaflet
+Suggests: testthat, knitr, leaflet, covr
 Enhances: maps, geojsonio
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-03-04 01:17:52 UTC; sacmac
+Packaged: 2016-05-02 18:11:29 UTC; sacmac
 Author: Scott Chamberlain [aut, cre],
   Jeff Hollister [aut]
 Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>
 Repository: CRAN
-Date/Publication: 2016-03-04 08:25:29
+Date/Publication: 2016-05-03 01:56:19
