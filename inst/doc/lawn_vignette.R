@@ -57,12 +57,12 @@ rings <- list(list(
 lawn_polygon(rings)
 
 ## ------------------------------------------------------------------------
-lawn_count(polygons = lawn_data$polygons_count, points = lawn_data$points_count)
+lawn_count(polygons = lawn_data$polygons_count, points = lawn_data$points_count, "population")
 
 ## ------------------------------------------------------------------------
 lawn_average(polygons = lawn_data$polygons_average,
-             points = lawn_data$points_average,
-             field = 'population')
+             points = lawn_data$points_average, 
+             in_field = 'population')
 
 ## ------------------------------------------------------------------------
 from <- '{
