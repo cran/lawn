@@ -10,19 +10,19 @@ view(x)
 view_(...)
 }
 \arguments{
-\item{x}{Input, a geojson character string or list}
+\item{x}{Input, a geojson character string or list.}
 
-\item{...}{Any geojson object, as list, json, or point, polygon, etc. class}
+\item{...}{Any geojson object, as list, json, or point, polygon, etc. class.}
 }
 \value{
-Opens a map with the geojson object(s)
+Opens a map with the geojson object(s).
 }
 \description{
 Visualize geojson
 }
 \details{
-\code{view_} is a special interface to \code{view} to accept arbitrary
-input via \code{...}
+\code{view_} is a special interface to \code{view} to accept
+arbitrary input via \code{...}.
 }
 \examples{
 \dontrun{
@@ -33,6 +33,7 @@ view(lawn_data$polygons_within)
 view(lawn_data$polygons_count)
 
 # from json (a jsonlite class)
+library(jsonlite)
 x <- minify(lawn_data$points_count)
 class(x)
 view(x)
@@ -84,10 +85,10 @@ view_(lawn_point(c(-30, 20)),
 
 # From a geo_list object from geojsonio package
 # library("geojsonio")
-# vecs <- list(c(100.0,0.0), c(101.0,0.0), c(101.0,1.0), c(100.0,1.0), c(100.0,0.0))
+# vecs <- list(c(100.0,0.0), c(101.0,0.0), c(101.0,1.0),
+  c(100.0,1.0), c(100.0,0.0))
 # x <- geojson_list(vecs, geometry="polygon")
 # view_(x)
 # view_(x, lawn_point(c(101, 0)))
 }
 }
-

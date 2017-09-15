@@ -1,14 +1,14 @@
 #' Tesselate
 #'
-#' Tesselates a \code{\link{data-Polygon}} into a
-#' \code{\link{data-FeatureCollection}} of
-#' triangles using earcut (\url{https://github.com/mapbox/earcut})
+#' Tesselates a [data-Polygon] into a
+#' [data-FeatureCollection] of
+#' triangles using earcut (<https://github.com/mapbox/earcut>)
 #'
 #' @export
-#' @param polygon input Polygon feaure
+#' @param polygon Input [data-Feature]<([data-Polygon])>
 #' @template lint
 #' @family assertions
-#' @return a \code{\link{data-FeatureCollection}}
+#' @return A [data-FeatureCollection]
 #' @examples
 #' poly <- '{
 #'  "type": "Feature",
@@ -37,6 +37,7 @@
 lawn_tesselate <- function(polygon, lint = FALSE) {
   poly <- convert(polygon)
   lawnlint(poly, lint)
+  if (lint) is_type(polygon, "Feature", "Polygon")
   ct$eval(sprintf("var er = turf.tesselate(%s);", poly))
   tmp <- ct$get("er")
   structure(tmp, class = tolower(tmp$type))

@@ -7,23 +7,23 @@
 lawn_tin(pt, propertyName = NULL, lint = FALSE)
 }
 \arguments{
-\item{pt}{input points}
+\item{pt}{Input points.}
 
-\item{propertyName}{name of the property from which to pull z values This is
-optional: if not given, then there will be no extra data added to the derived
-triangles.}
+\item{propertyName}{(character) Name of the property from which to pull z
+values. This is optional: if not given, then there will be no extra data
+added to the derived triangles}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-TIN output, as a \code{\link{data-FeatureCollection}}
+TIN output, as a \link{data-FeatureCollection}.
 }
 \description{
-Takes a set of \code{\link{data-Point}}'s and the name of a z-value property
-and creates a Triangulated Irregular Network (TIN)
+Takes a set of \link{data-Point}'s and the name of a z-value property
+and creates a Triangulated Irregular Network (TIN).
 }
 \details{
 Data returned as a collection of Polygons. These are often used for
@@ -36,6 +36,10 @@ represent the corners of the triangle.
 \examples{
 pts <- lawn_random(bbox = c(-70, 40, -60, 60))
 lawn_tin(pts)
+\dontrun{
+lawn_tin(pts) \%>\% view
+lawn_tin(lawn_random(bbox = c(-70, 40, -60, 10))) \%>\% view
+}
 }
 \seealso{
 Other interpolation: \code{\link{lawn_hex_grid}},
@@ -45,4 +49,3 @@ Other interpolation: \code{\link{lawn_hex_grid}},
   \code{\link{lawn_square_grid}},
   \code{\link{lawn_triangle_grid}}
 }
-

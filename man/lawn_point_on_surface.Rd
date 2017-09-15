@@ -7,29 +7,29 @@
 lawn_point_on_surface(x, lint = FALSE)
 }
 \arguments{
-\item{x}{any \code{\link{data-GeoJSON}} object}
+\item{x}{Any \link{data-GeoJSON} object}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-A point on the surface of \code{x}
+A \link{data-Feature}<(\link{data-Point})> on the surface of \code{x}
 }
 \description{
-Finds a \code{\link{data-Point}} guaranteed to be on the surface of
-\code{\link{data-GeoJSON}} object.
+Finds a \link{data-Point} guaranteed to be on the surface of
+\link{data-GeoJSON} object.
 }
 \details{
 What will be returned?
 \itemize{
- \item Given a \code{\link{data-Polygon}}, the point will be in the area
- of the polygon
- \item Given a \code{\link{data-LineString}}, the point will be along
- the string
- \item Given a \code{\link{data-Point}}, the point will the same as
- the input
+\item Given a \link{data-Polygon}, the point will be in the area
+of the polygon
+\item Given a \link{data-LineString}, the point will be along
+the string
+\item Given a \link{data-Point}, the point will be the same as
+the input
 }
 }
 \examples{
@@ -52,11 +52,13 @@ lawn_point_on_surface(lawn_linestring(linestring))
 Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
   \code{\link{lawn_bbox}}, \code{\link{lawn_bearing}},
+  \code{\link{lawn_center_of_mass}},
   \code{\link{lawn_center}}, \code{\link{lawn_centroid}},
   \code{\link{lawn_destination}},
   \code{\link{lawn_distance}}, \code{\link{lawn_envelope}},
   \code{\link{lawn_extent}},
   \code{\link{lawn_line_distance}},
-  \code{\link{lawn_midpoint}}, \code{\link{lawn_square}}
+  \code{\link{lawn_midpoint}},
+  \code{\link{lawn_pt2line_distance}},
+  \code{\link{lawn_square}}
 }
-

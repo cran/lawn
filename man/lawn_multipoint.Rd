@@ -2,19 +2,19 @@
 % Please edit documentation in R/multipoint.R
 \name{lawn_multipoint}
 \alias{lawn_multipoint}
-\title{Create a multipoint}
+\title{MultiPoint}
 \usage{
 lawn_multipoint(coordinates, properties = NULL)
 }
 \arguments{
 \item{coordinates}{A list of point pairs, either as a list or json, of the
 form e.g. \code{list(c(longitude, latitude), c(longitude, latitude))} or
-as JSON e.g. \code{[[longitude, latitude], [longitude, latitude]]}}
+as JSON e.g. \code{[[longitude, latitude], [longitude, latitude]]}.}
 
-\item{properties}{A list of properties. Default: NULL}
+\item{properties}{A list of properties. Default: \code{NULL}}
 }
 \value{
-a \code{\link{data-MultiPoint}} feature
+A \link{data-Feature}<(\link{data-MultiPoint})>
 }
 \description{
 Create a multipoint
@@ -45,4 +45,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_random}}, \code{\link{lawn_remove}},
   \code{\link{lawn_sample}}
 }
-

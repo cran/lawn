@@ -7,12 +7,12 @@
 lawn_combine(fc, lint = FALSE)
 }
 \arguments{
-\item{fc}{A \code{\link{data-FeatureCollection}} of any type}
+\item{fc}{A \link{data-FeatureCollection} of any type.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \description{
 Combines a FeatureCollection of Point, LineString, or Polygon features into
@@ -74,5 +74,10 @@ fc2 <- '{
  ]
 }'
 lawn_combine(fc2)
+\dontrun{
+fc1 \%>\% view
+lawn_combine(fc1) \%>\% view
+fc2 \%>\% view
+lawn_combine(fc2) \%>\% view
 }
-
+}

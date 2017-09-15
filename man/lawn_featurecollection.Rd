@@ -9,7 +9,7 @@ lawn_featurecollection(features)
 \arguments{
 \item{features}{Input features, can be json as json or character class,
 or a point, polygon, linestring, or centroid class, or many of those
-things in a list}
+things in a list.}
 }
 \description{
 Create a FeatureCollection
@@ -107,9 +107,22 @@ poly <- '{
 cent <- lawn_centroid(poly)
 lawn_featurecollection(cent)
 
+# from a feature
+pt <- '{
+ "type": "Feature",
+ "properties": {},
+ "geometry": {
+   "type": "Point",
+   "coordinates": [-90.548630, 14.616599]
+  }
+}'
+x <- lawn_buffer(pt, 5)
+lawn_featurecollection(x)
+
 # From a geo_list object from geojsonio package
 # library("geojsonio")
-# vecs <- list(c(100.0,0.0), c(101.0,0.0), c(101.0,1.0), c(100.0,1.0), c(100.0,0.0))
+# vecs <- list(c(100.0,0.0), c(101.0,0.0), c(101.0,1.0), c(100.0,1.0),
+#   c(100.0,0.0))
 # x <- geojson_list(vecs, geometry="polygon")
 # lawn_featurecollection(x)
 }
@@ -126,4 +139,3 @@ Other data functions: \code{\link{lawn_feature}},
   \code{\link{lawn_random}}, \code{\link{lawn_remove}},
   \code{\link{lawn_sample}}
 }
-

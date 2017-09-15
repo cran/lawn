@@ -7,20 +7,20 @@
 lawn_hex_grid(extent, cellWidth, units)
 }
 \arguments{
-\item{extent}{(numeric) extent in [minX, minY, maxX, maxY] order}
+\item{extent}{(numeric) Extent in \code{[minX, minY, maxX, maxY]} order.}
 
-\item{cellWidth}{(integer) width of each cell}
+\item{cellWidth}{(integer) Width of each cell.}
 
-\item{units}{(character) units to use for cellWidth, one of 'miles' or
-'kilometers'}
+\item{units}{(character) Units to use for cellWidth, one of 'miles' or
+'kilometers'.}
 }
 \value{
-\code{\link{data-FeatureCollection}} grid of points
+A \link{data-FeatureCollection} grid of points.
 }
 \description{
 Takes a bounding box and a cell size in degrees and returns a
-\code{\link{data-FeatureCollection}} of flat-topped hexagons
-(\code{\link{data-Polygon}} features) aligned in an "odd-q" vertical
+\link{data-FeatureCollection} of flat-topped hexagons
+(\link{data-Polygon} features) aligned in an "odd-q" vertical
 grid as described in Hexagonal Grids
 \url{http://www.redblobgames.com/grids/hexagons/}
 }
@@ -35,4 +35,3 @@ Other interpolation: \code{\link{lawn_isolines}},
   \code{\link{lawn_square_grid}}, \code{\link{lawn_tin}},
   \code{\link{lawn_triangle_grid}}
 }
-

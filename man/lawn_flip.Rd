@@ -7,15 +7,15 @@
 lawn_flip(input, lint = FALSE)
 }
 \arguments{
-\item{input}{Feature of features}
+\item{input}{\link{data-Feature} or \link{data-FeatureCollection}}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a \code{\link{data-Feature}} or \code{\link{data-FeatureCollection}}
+A \link{data-Feature} or \link{data-FeatureCollection}
 }
 \description{
 Flip x,y to y,x, and vice versa
@@ -35,5 +35,10 @@ lawn_flip(serbia)
 # a featurecollection
 pts <- lawn_random("points")
 lawn_flip(pts)
+\dontrun{
+lawn_data$points_average \%>\% view
+lawn_flip(lawn_data$points_average) \%>\% view
+lawn_data$polygons_average \%>\% view
+lawn_flip(lawn_data$polygons_average) \%>\% view
 }
-
+}

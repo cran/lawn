@@ -1,16 +1,17 @@
 #' Difference
 #'
-#' Finds the difference between two \code{\link{data-Polygon}}'s by clipping
+#' Finds the difference between two [data-Polygon]'s by clipping
 #' the second polygon from the first.
 #'
 #' @export
-#' @param poly1 input Polygon feaure
-#' @param poly2 Polygon feature to erase from poly1
+#' @param poly1 A [data-Feature]<([data-Polygon])> feature
+#' @param poly2 [data-Feature]<([data-Polygon])> to erase from poly1
 #' @template lint
 #' @family transformations
-#' @return a \code{\link{data-Polygon}} feature showing the area of poly1
+#' @return a [data-Feature]<([data-Polygon])> feature showing the area of poly1
 #' excluding the area of poly2
-#' @examples
+#' @examples \dontrun{
+#' # skipping on cran
 #' poly1 <- '{
 #'  "type": "Feature",
 #'   "properties": {
@@ -45,6 +46,7 @@
 #'   }
 #' }'
 #' lawn_difference(poly1, poly2)
+#' }
 #' @examples \dontrun{
 #' lawn_featurecollection(list(poly1, poly2)) %>% view
 #' lawn_difference(poly1, poly2) %>% view
@@ -58,6 +60,10 @@ lawn_difference <- function(poly1, poly2, lint = FALSE) {
   poly1 <- convert(poly1)
   poly2 <- convert(poly2)
   lawnlint(list(poly1, poly2), lint)
+  if (lint) {
+    is_type(poly1, "Feature", "Polygon")
+    is_type(poly2, "Feature", "Polygon")
+  }
   ct$eval(sprintf("var er = turf.difference(%s, %s);", poly1, poly2))
   structure(ct$get("er"), class = "polygon")
 }

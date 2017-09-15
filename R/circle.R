@@ -1,18 +1,17 @@
 #' circle
 #'
-#' Takes a \code{\link{data-Point}} and calculates the circle polygon given
-#' a radius in degrees, radians, miles, or kilometers; and steps for precision
+#' Takes a [data-Point] and calculates the circle polygon given
+#' a radius in degrees, radians, miles, or kilometers; and steps
+#' for precision
 #'
 #' @export
-#' @param center the center \code{\link{data-Point}}
-#' @param radius (integer) radius of the circle
-#' @param steps (integer) number of steps
-#' @param units (character) (default kilometers) ) miles, kilometers,
-#' degrees, or radians
-#' @return a
+#' @param center The center, a [data-Feature]<([data-Point])>
+#' @param radius (integer) Radius of the circle.
+#' @param steps (integer) Number of steps.
+#' @param units (character) Miles, kilometers (default), degrees, or radians
 #' @template lint
 #' @family assertions
-#' @return a \code{\link{data-Polygon}}
+#' @return a [data-Feature]<([data-Polygon])>
 #' @examples
 #' pt <- '{
 #'   "type": "Feature",
@@ -37,7 +36,8 @@
 lawn_circle <- function(center, radius, steps = FALSE, units = "kilometers",
                         lint = FALSE) {
   lawnlint(center, lint)
+  if (lint) is_type(center, type_top = "Feature")
   ct$eval(sprintf("var xx = turf.circle(%s, %s, %s, '%s');",
-                  convert(center), radius, steps, units))
+                  convert(center), radius, tolower(steps), units))
   structure(ct$get("xx"), class = "polygon")
 }

@@ -7,24 +7,26 @@
 lawn_difference(poly1, poly2, lint = FALSE)
 }
 \arguments{
-\item{poly1}{input Polygon feaure}
+\item{poly1}{A \link{data-Feature}<(\link{data-Polygon})> feature}
 
-\item{poly2}{Polygon feature to erase from poly1}
+\item{poly2}{\link{data-Feature}<(\link{data-Polygon})> to erase from poly1}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a \code{\link{data-Polygon}} feature showing the area of poly1
+a \link{data-Feature}<(\link{data-Polygon})> feature showing the area of poly1
 excluding the area of poly2
 }
 \description{
-Finds the difference between two \code{\link{data-Polygon}}'s by clipping
+Finds the difference between two \link{data-Polygon}'s by clipping
 the second polygon from the first.
 }
 \examples{
+\dontrun{
+# skipping on cran
 poly1 <- '{
  "type": "Feature",
   "properties": {
@@ -60,6 +62,16 @@ poly2 <- '{
 }'
 lawn_difference(poly1, poly2)
 }
+\dontrun{
+lawn_featurecollection(list(poly1, poly2)) \%>\% view
+lawn_difference(poly1, poly2) \%>\% view
+fc <- lawn_featurecollection(list(
+   lawn_polygon(fromJSON(poly1)$geometry$coordinates),
+   lawn_polygon(fromJSON(poly2)$geometry$coordinates)
+))
+view(fc)
+}
+}
 \seealso{
 Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_buffer}}, \code{\link{lawn_concave}},
@@ -67,4 +79,3 @@ Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_merge}}, \code{\link{lawn_simplify}},
   \code{\link{lawn_union}}
 }
-

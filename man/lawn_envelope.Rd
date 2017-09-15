@@ -7,20 +7,20 @@
 lawn_envelope(fc, lint = FALSE)
 }
 \arguments{
-\item{fc}{\code{\link{data-FeatureCollection}}}
+\item{fc}{A \link{data-Feature} or \link{data-FeatureCollection}}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a rectangular \code{\link{data-Polygon}} feature that
+a rectangular \link{data-Feature}<(\link{data-Polygon})> that
 encompasses all vertices
 }
 \description{
 Takes any number of features and returns a rectangular
-\code{\link{data-Polygon}} that encompasses all vertices.
+\link{data-Polygon} that encompasses all vertices.
 }
 \examples{
 fc <- '{
@@ -57,17 +57,22 @@ fc <- '{
   ]
 }'
 lawn_envelope(fc)
+\dontrun{
+fc \%>\% view
+lawn_envelope(fc) \%>\% view
+}
 }
 \seealso{
 Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
   \code{\link{lawn_bbox}}, \code{\link{lawn_bearing}},
+  \code{\link{lawn_center_of_mass}},
   \code{\link{lawn_center}}, \code{\link{lawn_centroid}},
   \code{\link{lawn_destination}},
   \code{\link{lawn_distance}}, \code{\link{lawn_extent}},
   \code{\link{lawn_line_distance}},
   \code{\link{lawn_midpoint}},
   \code{\link{lawn_point_on_surface}},
+  \code{\link{lawn_pt2line_distance}},
   \code{\link{lawn_square}}
 }
-

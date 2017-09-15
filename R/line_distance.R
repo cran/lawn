@@ -1,14 +1,15 @@
 #' Measure a linestring
 #'
-#' Takes a \code{\link{data-LineString}} and measures its length in
+#' Takes a [data-LineString] and measures its length in
 #' the specified units.
 #'
 #' @export
-#' @param line Line to measure, a \code{\link{data-LineString}}
-#' @param units Can be degrees, radians, miles, or kilometers
+#' @param line Line to measure, a [data-Feature]<([data-LineString])>,
+#' or [data-FeatureCollection]<([data-LineString])>
+#' @param units Can be degrees, radians, miles, or kilometers.
 #' @template lint
 #' @family measurements
-#' @return length of the input line (numeric)
+#' @return Length of the input line (numeric).
 #' @examples
 #' line <- '{
 #'   "type": "Feature",
@@ -32,6 +33,8 @@
 lawn_line_distance <- function(line, units, lint = FALSE) {
   line <- convert(line)
   lawnlint(line, lint)
+  assert(units, "character")
+  if (lint) is_type(line, type_top = c("Feature", "FeatureCollection"))
   ct$eval(sprintf("var env = turf.lineDistance(%s, '%s');", line, units))
   ct$get("env")
 }

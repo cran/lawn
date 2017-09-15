@@ -7,18 +7,18 @@
 lawn_convex(input, lint = FALSE)
 }
 \arguments{
-\item{input}{input points in a \code{\link{data-FeatureCollection}}}
+\item{input}{Input points in a \link{data-FeatureCollection}.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-\code{\link{data-Polygon}} a convex hull
+a convex hull \link{data-Polygon}
 }
 \description{
-Takes a set of \code{\link{data-Point}}'s and returns a convex
+Takes a set of \link{data-Point}'s and returns a convex
 hull polygon. Internally, this uses the
 \href{https://github.com/mikolalysenko/convex-hull}{convex-hull} module
 that implements a Monotone chain hull
@@ -73,6 +73,9 @@ points <- '{
     ]
 }'
 lawn_convex(points)
+\dontrun{
+lawn_convex(points) \%>\% view
+}
 }
 \seealso{
 Other transformations: \code{\link{lawn_bezier}},
@@ -81,4 +84,3 @@ Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_intersect}}, \code{\link{lawn_merge}},
   \code{\link{lawn_simplify}}, \code{\link{lawn_union}}
 }
-

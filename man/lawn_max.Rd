@@ -7,26 +7,28 @@
 lawn_max(polygons, points, in_field, out_field = "max", lint = FALSE)
 }
 \arguments{
-\item{polygons}{a FeatureCollection of \code{\link{data-Polygon}} features}
+\item{polygons}{a \code{\link{data-FeatureCollection}} of
+\code{\link{data-Polygon}} features}
 
-\item{points}{a FeatureCollection of \code{\link{data-Point}} features}
+\item{points}{a \code{\link{data-FeatureCollection}} of
+\code{\link{data-Point}} features}
 
 \item{in_field}{(character) the field in input data to analyze}
 
 \item{out_field}{(character) the field in which to store results}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-A FeatureCollection of \code{\link{data-Polygon}} features with
-properties listed as \code{out_field}
+A FeatureCollection of \link{data-Polygon} features with
+properties listed as \code{out_field}.
 }
 \description{
-Calculates the maximum value of a field for a set of \code{\link{data-Point}}'s
-within a set of \code{\link{data-Polygon}}'s
+Calculates the maximum value of a field for a set of \link{data-Point}'s
+within a set of \link{data-Polygon}'s.
 }
 \examples{
 \dontrun{
@@ -42,4 +44,3 @@ Other aggregations: \code{\link{lawn_average}},
   \code{\link{lawn_min}}, \code{\link{lawn_sum}},
   \code{\link{lawn_variance}}
 }
-

@@ -105,7 +105,7 @@ lawn_distance(from, to)
 ```r
 lawn_random(n = 2)
 #> <FeatureCollection>
-#>   Bounding box: -63.0 -12.4 168.8 45.2
+#>   Bounding box: -103.8 -37.1 2.6 -36.2
 #>   No. features: 2
 #>   No. points: 4
 #>   Properties: NULL
@@ -115,7 +115,7 @@ lawn_random(n = 2)
 ```r
 lawn_random(n = 5)
 #> <FeatureCollection>
-#>   Bounding box: -171.4 -50.5 135.5 51.6
+#>   Bounding box: -128.1 -78.3 113.0 78.7
 #>   No. features: 5
 #>   No. points: 10
 #>   Properties: NULL
@@ -129,7 +129,7 @@ Points
 ```r
 gr_point(2)
 #> <FeatureCollection>
-#>   Bounding box: -81.8 -58.5 170.6 43.8
+#>   Bounding box: -44.4 -78.3 113.9 40.9
 #>   No. features: 2
 #>   No. points: 4
 #>   Properties: NULL
@@ -140,7 +140,7 @@ Positions
 
 ```r
 gr_position()
-#> [1]  46.78765 -69.55507
+#> [1] -48.32684  71.47329
 ```
 
 Polygons
@@ -149,7 +149,7 @@ Polygons
 ```r
 gr_polygon(n = 1, vertices = 5, max_radial_length = 5)
 #> <FeatureCollection>
-#>   Bounding box: -28.2 20.3 -20.6 29.0
+#>   Bounding box: -35.9 -70.6 -31.4 -68.0
 #>   No. features: 1
 #>   No. points: 12
 #>   Properties: NULL
@@ -162,25 +162,25 @@ gr_polygon(n = 1, vertices = 5, max_radial_length = 5)
 dat <- lawn_data$points_average
 lawn_sample(dat, 1)
 #> <FeatureCollection>
-#>   Bounding box: 10.8 59.9 10.8 59.9
+#>   Bounding box: 10.7 59.9 10.7 59.9
 #>   No. features: 1
 #>   No. points: 2
 #>   Properties: 
 #>   population
-#> 1        300
+#> 1        100
 ```
 
 
 ```r
 lawn_sample(dat, 2)
 #> <FeatureCollection>
-#>   Bounding box: 10.8 59.9 10.8 59.9
+#>   Bounding box: 10.7 59.9 10.8 59.9
 #>   No. features: 2
 #>   No. points: 4
 #>   Properties: 
 #>   population
-#> 1        300
-#> 2        200
+#> 1        600
+#> 2        300
 ```
 
 
@@ -192,9 +192,9 @@ lawn_sample(dat, 3)
 #>   No. points: 6
 #>   Properties: 
 #>   population
-#> 1        600
-#> 2        300
-#> 3        200
+#> 1        300
+#> 2        200
+#> 3        600
 ```
 
 ## extent
@@ -252,7 +252,7 @@ lawn_buffer(dat, 1, "miles")
 view(lawn_data$points_average)
 ```
 
-![map1](inst/img/map1.png)
+![map1](tools/map1.png)
 
 Or during process of manipulating geojson, view at mostly any time.
 
@@ -263,7 +263,7 @@ Here, we sample at random two points from the same dataset just viewed.
 lawn_sample(lawn_data$points_average, 2) %>% view()
 ```
 
-![map1](inst/img/map2.png)
+![map1](tools/map2.png)
 
 ## Contributors
 
@@ -277,5 +277,8 @@ lawn_sample(lawn_data$points_average, 2) %>% view()
 * License: MIT
 * Get citation information for `lawn` in R doing `citation(package = 'lawn')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+## Additional disclaimer
+Portions of this code have been contributed by Jeff Hollister, US EPA.  As such, that code is subjec to the following disclaimer: <https://www.epa.gov/home/github-contribution-disclaimer>
 
 [![rofooter](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

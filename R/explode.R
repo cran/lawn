@@ -3,9 +3,9 @@
 #' Takes a feature or set of features and returns all positions as points
 #'
 #' @export
-#' @param input Feature of features
+#' @param input [data-Feature] or [data-FeatureCollection]
 #' @template lint
-#' @return a \code{\link{data-FeatureCollection}} of points
+#' @return a [data-FeatureCollection] of points
 #' @examples
 #' poly <- '{
 #'  "type": "Feature",
@@ -33,6 +33,7 @@
 lawn_explode <- function(input, lint = FALSE) {
   input <- convert(input)
   lawnlint(input, lint)
+  if (lint) is_type(input, type_top = c("Feature", "FeatureCollection"))
   ct$eval(sprintf("var exp = turf.explode(%s);", input))
   as.fc(ct$get("exp"))
 }

@@ -1,19 +1,17 @@
 #' R client for turf.js for geospatial analysis
 #'
-#' turf.js uses GeoJSON for all geographic data, and expects the data to be standard
-#' \href{http://en.wikipedia.org/wiki/World_Geodetic_System}{WGS84} longitude,latitude
-#' coordinates. See \url{http://geojson.io/} for a tool to easily create GeoJSON
-#' in a browser.
+#' turf.js uses GeoJSON for all geographic data, and expects the data to be
+#' standard [WGS84](http://en.wikipedia.org/wiki/World_Geodetic_System)
+#' longitude,latitude coordinates. See <http://geojson.io/> for a tool to
+#' easily create GeoJSON in a browser.
 #'
-#' @seealso \code{\link{lawn-defunct}}
+#' @seealso [lawn-defunct]
 #'
-#' @importFrom methods is
-#' @importFrom stats setNames
-#' @importFrom utils head
 #' @name lawn-package
+#' @importFrom jsonlite fromJSON
 #' @aliases lawn
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
-#' @author Jeff Hollister \email{hollister.jeff@@epa.gov}
+#' @author Scott Chamberlain (\email{myrmecocystus@@gmail.com})
+#' @author Jeff Hollister (\email{hollister.jeff@@epa.gov})
 #' @docType package
 NULL
 
@@ -33,7 +31,7 @@ NULL
 #'  \item polygons_count - FeatureCollection of polygons
 #'  \item points_within - FeatureCollection of points
 #'  \item polygons_within - FeatureCollection of polygons
-#'  \item poly - Feaure of a single 1 degree by 1 degree polygon
+#'  \item poly - Feature of a single 1 degree by 1 degree polygon
 #'  \item multipoly - FeatureCollection of two 1 degree by 1 degree polygons
 #'  \item polygons_aggregate - FeatureCollection of Polygons from turf.js examples
 #'  \item points_aggregate - FeatureCollection of Points from turf.js examples

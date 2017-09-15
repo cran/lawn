@@ -1,16 +1,18 @@
 #' Convert a FeatureCollection to a Feature
 #'
 #' @export
-#' @param x A \code{\link{data-FeatureCollection}}
+#' @param x A [data-FeatureCollection].
 #' @details If there are more than one feature within the featurecollection,
 #' each feature is split out into a separate feature, returned in a list.
-#' Each feature is a assigned a class matching it's GeoJSON data type
+#' Each feature is assigned a class matching it's GeoJSON data type
 #' (e.g., point, polygon, linestring).
+#' @seealso [as.feature] , which is similarly named, but has a different
+#' purpose
 #' @examples
 #' as_feature(lawn_random())
 #' # as_feature(lawn_random("polygons"))
 as_feature <- function(x) {
-  if (is(x, "featurecollection")) {
+  if (inherits(x, "featurecollection")) {
     ct$eval(sprintf("var x = %s;", convert(x)))
     tmp <- ct$get("x.features", simplifyVector = FALSE)
     tmp <- lapply(tmp, function(z) {

@@ -7,12 +7,12 @@
 lawn_multilinestring(coordinates, properties = NULL)
 }
 \arguments{
-\item{coordinates}{A list of Positions}
+\item{coordinates}{A list of positions.}
 
-\item{properties}{A list of properties}
+\item{properties}{A list of properties.}
 }
 \value{
-a \code{\link{data-MultiLineString}} feature
+A \link{data-Feature}<(\link{data-MultiLineString})>
 }
 \description{
 Create a multilinestring
@@ -40,6 +40,9 @@ lawn_multilinestring(mlstr,
 # Make a FeatureCollection
 lawn_featurecollection(lawn_multilinestring(mlstr))
 
+\dontrun{
+lawn_featurecollection(lawn_multilinestring(mlstr)) \%>\% view
+}
 }
 \seealso{
 Other data functions: \code{\link{lawn_featurecollection}},
@@ -52,4 +55,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_random}}, \code{\link{lawn_remove}},
   \code{\link{lawn_sample}}
 }
-

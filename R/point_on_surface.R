@@ -1,20 +1,20 @@
 #' Get a point on the surface of a feature
 #'
-#' Finds a \code{\link{data-Point}} guaranteed to be on the surface of
-#' \code{\link{data-GeoJSON}} object.
+#' Finds a [data-Point] guaranteed to be on the surface of
+#' [data-GeoJSON] object.
 #'
 #' @export
-#' @param x any \code{\link{data-GeoJSON}} object
-#' @return A point on the surface of \code{x}
+#' @param x Any [data-GeoJSON] object
+#' @return A [data-Feature]<([data-Point])> on the surface of `x`
 #' @template lint
 #' @family measurements
 #' @details What will be returned?
 #' \itemize{
-#'  \item Given a \code{\link{data-Polygon}}, the point will be in the area
+#'  \item Given a [data-Polygon], the point will be in the area
 #'  of the polygon
-#'  \item Given a \code{\link{data-LineString}}, the point will be along
+#'  \item Given a [data-LineString], the point will be along
 #'  the string
-#'  \item Given a \code{\link{data-Point}}, the point will the same as
+#'  \item Given a [data-Point], the point will be the same as
 #'  the input
 #' }
 #'
@@ -36,6 +36,7 @@
 lawn_point_on_surface <- function(x, lint = FALSE) {
   x <- convert(x)
   lawnlint(x, lint)
+  is_type(x, type_top = c("Feature", "FeatureCollection"))
   ct$eval(sprintf("var psf = turf.pointOnSurface(%s);", x))
   structure(ct$get("psf"), class = "point")
 }

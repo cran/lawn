@@ -2,16 +2,19 @@
 #'
 #' @export
 #'
-#' @param input A feature or featurecollection of polygons.
+#' @param input A [data-Feature] or [data-FeatureCollection] of polygons
 #' @template lint
 #' @family measurements
-#' @return value in square meters
+#' @return A numeric in square meters
 #' @examples
 #' lawn_area(lawn_data$poly)
 #' lawn_area(lawn_data$multipoly)
 lawn_area <- function(input, lint = FALSE) {
   input <- convert(input)
   lawnlint(input, lint)
+  if (lint) {
+    is_type(input, type_top = c("Feature", "FeatureCollection"))
+  }
   ct$eval(sprintf("var area = turf.area(%s);", input))
   ct$get("area")
 }

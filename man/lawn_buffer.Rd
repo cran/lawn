@@ -7,19 +7,20 @@
 lawn_buffer(input, dist, units = "kilometers", lint = FALSE)
 }
 \arguments{
-\item{input}{A Feature or FeatureCollection}
+\item{input}{A \link{data-Feature} or \link{data-FeatureCollection}}
 
-\item{dist}{distance used to buffer the input}
+\item{dist}{(integer/numeric) Distance used to buffer the input.}
 
-\item{units}{(character) Can be miles, feet, kilometers (default), meters, or degrees}
+\item{units}{(character) Units of the \code{dist} argument.  Can be miles, feet,
+kilometers (default), meters, or degrees.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \description{
-Calculates a buffer for input features for a given radius
+Calculates a buffer for input features for a given radius.
 }
 \examples{
 # From a Point
@@ -58,9 +59,6 @@ lawn_buffer(dat, 1, "miles")
 lawn_buffer(lawn_point(c(-74.50,40)), 100, "meters")
 
 }
-\author{
-Jeff Hollister \email{hollister.jeff@epa.gov}
-}
 \seealso{
 Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_concave}}, \code{\link{lawn_convex}},
@@ -68,4 +66,6 @@ Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_intersect}}, \code{\link{lawn_merge}},
   \code{\link{lawn_simplify}}, \code{\link{lawn_union}}
 }
-
+\author{
+Jeff Hollister \email{hollister.jeff@epa.gov}
+}

@@ -7,23 +7,23 @@
 lawn_remove(features, property, value, lint = FALSE)
 }
 \arguments{
-\item{features}{A set of input features}
+\item{features}{A set of input features.}
 
-\item{property}{Property to filter}
+\item{property}{Property to filter.}
 
-\item{value}{Value to filter}
+\item{value}{Value to filter.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-A \code{\link{data-FeatureCollection}}
+A \link{data-FeatureCollection}.
 }
 \description{
-Takes a \code{\link{data-FeatureCollection}} of any type, a property, and a
-value and returns a \code{\link{data-FeatureCollection}} with features
+Takes a \link{data-FeatureCollection} of any type, a property, and a
+value and returns a \link{data-FeatureCollection} with features
 matching that property-value pair removed.
 }
 \examples{
@@ -42,4 +42,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_point}}, \code{\link{lawn_polygon}},
   \code{\link{lawn_random}}, \code{\link{lawn_sample}}
 }
-

@@ -4,11 +4,11 @@
 \alias{print-methods}
 \title{Lawn print methods to provide summary view}
 \arguments{
-\item{x}{input}
+\item{x}{Input.}
 
-\item{n}{(integer) Number of rows to print, when properties is large object}
+\item{n}{(integer) Number of rows to print, when properties is large object.}
 
-\item{...}{print options}
+\item{...}{Print options.}
 }
 \description{
 Lawn print methods to provide summary view
@@ -35,7 +35,8 @@ linestring1 <- '[
    [-21.927337, 64.136673]
 ]'
 lawn_linestring(linestring1)
-lawn_linestring(linestring1, properties = list(name = 'line1', distance = 145))
+lawn_linestring(linestring1, properties = list(name = 'line1',
+  distance = 145))
 
 # featurecollection
 lawn_featurecollection(lawn_data$featurecollection_eg1)
@@ -115,4 +116,3 @@ x$properties <- data.frame(color = c("red", "green"),
                            popultion = c(5000, 10000L))
 x
 }
-

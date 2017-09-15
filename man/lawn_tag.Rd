@@ -7,27 +7,28 @@
 lawn_tag(points, polygons, field, out_field, lint = FALSE)
 }
 \arguments{
-\item{points}{Input \code{\link{data-Point}}}
+\item{points}{Input \link{data-FeatureCollection}<(\link{data-Point})>}
 
-\item{polygons}{Input \code{\link{data-Polygon}} or
-\code{\link{data-MultiPolygon}}}
+\item{polygons}{Input \link{data-FeatureCollection}<(\link{data-Polygon})> or
+\link{data-FeatureCollection}<(\link{data-MultiPolygon})>}
 
-\item{field}{property in polygons to add to joined Point features}
+\item{field}{Property in polygons to add to joined Point features.}
 
-\item{out_field}{property in points in which to store joined
-property from polygons}
+\item{out_field}{Property in points in which to store joined
+property from polygons.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-points with containing_polyid property containing values from poly_id
+Points with containing_polyid property containing values
+from poly_id, as \link{data-FeatureCollection}<(\link{data-Point})>
 }
 \description{
-Takes a set of \code{\link{data-Point}}'s and a set of
-\code{\link{data-Polygon}}'s and performs a spatial join
+Takes a set of \link{data-Point}'s and a set of
+\link{data-Polygon}'s and performs a spatial join.
 }
 \examples{
 bbox <- c(0, 0, 10, 10)
@@ -37,9 +38,11 @@ polys$features$properties$fill <- "#f92"
 polys$features$properties$stroke <- 0
 polys$features$properties$`fill-opacity` <- 1
 lawn_tag(pts, polys, 'fill', 'marker-color')
+\dontrun{
+lawn_tag(pts, polys, 'fill', 'marker-color') \%>\% view
+}
 }
 \seealso{
 Other joins: \code{\link{lawn_inside}},
   \code{\link{lawn_within}}
 }
-

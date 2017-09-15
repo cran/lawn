@@ -7,25 +7,25 @@
 lawn_intersect(poly1, poly2, lint = FALSE)
 }
 \arguments{
-\item{poly1}{A \code{\link{data-Polygon}}}
+\item{poly1}{A \link{data-Polygon}.}
 
-\item{poly2}{A \code{\link{data-Polygon}}}
+\item{poly2}{A \link{data-Polygon}.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-\code{\link{data-Polygon}}, \code{\link{data-MultiLineString}}, or undefined
+\link{data-Polygon}, \link{data-MultiLineString}, or undefined
 }
 \description{
-Finds the interesection of two \code{\link{data-Polygon}}'s and returns just
+Finds the intersection of two \link{data-Polygon}'s and returns just
 the intersection of the two
 }
 \details{
-Polygons with just a shared boundary will return the boundary. Polygons
-that do not intersect will return \code{NULL}.
+Polygons with just a shared boundary will return the boundary.
+Polygons that do not intersect will return \code{NULL}.
 }
 \examples{
 poly1 <- '{
@@ -66,9 +66,25 @@ poly2 <- '{
 }'
 lawn_intersect(poly1, poly2)
 
+\dontrun{
+view(poly1)
+view(poly2)
+lawn_intersect(poly1, poly2) \%>\% view()
+
+x1 <- lawn_buffer(lawn_point(c(-122.6375, 45.53)), 1500, "meters")
+x2 <- lawn_buffer(lawn_point(c(-122.6475, 45.53)), 1500, "meters")
+lawn_intersect(x1, x2)
+as.fc(x1) \%>\% view()
+as.fc(x2) \%>\% view()
+lawn_intersect(x1, x2) \%>\% view()
+
+# not overlapping
+x3 <- lawn_buffer(lawn_point(c(-122.6375, 45.53)), 1500, "meters")
+x4 <- lawn_buffer(lawn_point(c(-122.6975, 45.53)), 1500, "meters")
+as.fc(x3) \%>\% view()
+as.fc(x4) \%>\% view()
+lawn_intersect(x3, x4) \%>\% view()
 }
-\author{
-Jeff Hollister \email{hollister.jeff@epa.gov}
 }
 \seealso{
 Other transformations: \code{\link{lawn_bezier}},
@@ -77,4 +93,6 @@ Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_merge}}, \code{\link{lawn_simplify}},
   \code{\link{lawn_union}}
 }
-
+\author{
+Jeff Hollister \email{hollister.jeff@epa.gov}
+}

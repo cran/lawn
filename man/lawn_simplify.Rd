@@ -8,31 +8,32 @@ lawn_simplify(feature, tolerance = 0.01, high_quality = FALSE,
   lint = FALSE)
 }
 \arguments{
-\item{feature}{a \code{\link{data-LineString}} or \code{\link{data-Polygon}}
-feature to be simplified}
+\item{feature}{A \link{data-Feature}<(\link{data-LineString}, \link{data-Polygon},
+\link{data-MultiLineString}, \link{data-MultiPolygon})>, or \link{data-FeatureCollection},
+or \link{data-GeometryCollection}}
 
-\item{tolerance}{(numeric) Simplification tolerance}
+\item{tolerance}{(numeric) Simplification tolerance.  Default value is 0.01.}
 
 \item{high_quality}{(boolean) Whether or not to spend more time to create a
 higher-quality simplification with a different algorithm. Default: \code{FALSE}}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a simplified feature
+A simplified feature.
 
-A Feature of either \code{\link{data-Polygon}} or \code{\link{data-LineString}}
+A Feature of either \link{data-Polygon} or \link{data-LineString}.
 }
 \description{
-Takes a \code{\link{data-LineString}} or \code{\link{data-Polygon}}
-and returns a simplified version
+Takes a \link{data-LineString} or \link{data-Polygon}
+and returns a simplified version.
 }
 \details{
-Internally uses simplify-js (\url{http://mourner.github.io/simplify-js/})
-to perform simplification.
+Internally uses simplify-js
+(\url{http://mourner.github.io/simplify-js/}) to perform simplification.
 }
 \examples{
 feature <- '{
@@ -66,6 +67,9 @@ feature <- '{
 }'
 
 lawn_simplify(feature, tolerance = 0.01)
+\dontrun{
+lawn_simplify(feature, tolerance = 0.01) \%>\% view
+}
 }
 \seealso{
 Other transformations: \code{\link{lawn_bezier}},
@@ -74,4 +78,3 @@ Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_intersect}}, \code{\link{lawn_merge}},
   \code{\link{lawn_union}}
 }
-

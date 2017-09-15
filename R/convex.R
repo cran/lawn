@@ -1,15 +1,15 @@
 #' Convex hull polygon
 #'
-#' Takes a set of \code{\link{data-Point}}'s and returns a convex
+#' Takes a set of [data-Point]'s and returns a convex
 #' hull polygon. Internally, this uses the
-#' \href{https://github.com/mikolalysenko/convex-hull}{convex-hull} module
+#' [convex-hull](https://github.com/mikolalysenko/convex-hull) module
 #' that implements a Monotone chain hull
 #'
 #' @export
-#' @param input input points in a \code{\link{data-FeatureCollection}}
+#' @param input Input points in a [data-FeatureCollection].
 #' @template lint
 #' @family transformations
-#' @return \code{\link{data-Polygon}} a convex hull
+#' @return a convex hull [data-Polygon]
 #' @examples
 #' points <- '{
 #'   "type": "FeatureCollection",
@@ -66,6 +66,7 @@
 lawn_convex <- function(input, lint = FALSE) {
   input <- convert(input)
   lawnlint(input, lint)
+  if (lint) is_type(input, c("Feature", "FeatureCollection"), "Point")
   ct$eval(sprintf("var cv = turf.convex(%s);", input))
   structure(ct$get("cv"), class = "polygon")
 }

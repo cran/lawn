@@ -7,12 +7,12 @@
 lawn_geometrycollection(coordinates, properties = NULL)
 }
 \arguments{
-\item{coordinates}{A list of GeoJSON geometries, or in json}
+\item{coordinates}{A list of GeoJSON geometries, or in json.}
 
-\item{properties}{A list of properties}
+\item{properties}{A list of properties.}
 }
 \value{
-a \code{\link{data-GeometryCollection}} feature
+A \link{data-GeometryCollection} feature.
 }
 \description{
 Create a geometrycollection
@@ -60,4 +60,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_random}}, \code{\link{lawn_remove}},
   \code{\link{lawn_sample}}
 }
-

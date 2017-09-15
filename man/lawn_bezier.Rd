@@ -7,24 +7,24 @@
 lawn_bezier(line, resolution = 10000L, sharpness = 0.85, lint = FALSE)
 }
 \arguments{
-\item{line}{input \code{\link{data-LineString}}}
+\item{line}{A \link{data-Feature} with a single \link{data-LineString}}
 
-\item{resolution}{time in milliseconds between points}
+\item{resolution}{Time in milliseconds between points}
 
-\item{sharpness}{a measure of how curvy the path should be between splines}
+\item{sharpness}{A measure of how curvy the path should be between splines}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-\code{\link{data-LineString}} curved line
+A \link{data-LineString} curved line.
 }
 \description{
-Takes a \code{\link{data-LineString}} and returns a curved version
+Takes a \link{data-LineString} and returns a curved version
 by applying a \href{http://en.wikipedia.org/wiki/Bezier_spline}{Bezier}
-spline algorithm
+spline algorithm.
 }
 \examples{
 pts <- '[
@@ -36,6 +36,11 @@ pts <- '[
 lawn_bezier(lawn_linestring(pts))
 lawn_bezier(lawn_linestring(pts), 9000L)
 lawn_bezier(lawn_linestring(pts), 9000L, 0.65)
+\dontrun{
+lawn_bezier(lawn_linestring(pts)) \%>\% view
+lawn_featurecollection(list(lawn_linestring(pts),
+  lawn_bezier(lawn_linestring(pts)))) \%>\% view
+}
 }
 \seealso{
 Other transformations: \code{\link{lawn_buffer}},
@@ -44,4 +49,3 @@ Other transformations: \code{\link{lawn_buffer}},
   \code{\link{lawn_intersect}}, \code{\link{lawn_merge}},
   \code{\link{lawn_simplify}}, \code{\link{lawn_union}}
 }
-

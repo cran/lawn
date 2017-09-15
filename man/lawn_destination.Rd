@@ -7,28 +7,28 @@
 lawn_destination(start, distance, bearing, units, lint = FALSE)
 }
 \arguments{
-\item{start}{starting point \code{\link{data-Point}}}
+\item{start}{Starting point, a \link{data-Feature}<\link{data-Point}>}
 
-\item{distance}{distance from the starting point}
+\item{distance}{Distance from the starting point.}
 
-\item{bearing}{ranging from -180 to 180}
+\item{bearing}{Ranging from -180 to 180.}
 
-\item{units}{miles, kilometers, degrees, or radians}
+\item{units}{Miles, kilometers, degrees, or radians.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-destination \code{\link{data-Point}}
+the calculated destination, a \link{data-Feature}<\link{data-Point}>
 }
 \description{
-Takes a \code{\link{data-Point}} and calculates the location of a
-destination point given a distance in degrees, radians, miles, or kilometers; and
-bearing in degrees. Uses the
-\href{http://en.wikipedia.org/wiki/Haversine_formula}{Haversine formula} to account
-for global curvature.
+Takes a \link{data-Point} and calculates the location of a
+destination point given a distance in degrees, radians, miles, or
+kilometers; and bearing in degrees. Uses the
+\href{http://en.wikipedia.org/wiki/Haversine_formula}{Haversine formula} to
+account for global curvature.
 }
 \examples{
 pt <- '{
@@ -45,17 +45,22 @@ lawn_destination(pt, 50, 90, "miles")
 lawn_destination(pt, 100, 90, "miles")
 lawn_destination(pt, 2, 45, "kilometers")
 lawn_destination(pt, 2, 30, "degrees")
+\dontrun{
+pt \%>\% view
+lawn_destination(pt, 200, 90, "miles") \%>\% view
+}
 }
 \seealso{
 Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
   \code{\link{lawn_bbox}}, \code{\link{lawn_bearing}},
+  \code{\link{lawn_center_of_mass}},
   \code{\link{lawn_center}}, \code{\link{lawn_centroid}},
   \code{\link{lawn_distance}}, \code{\link{lawn_envelope}},
   \code{\link{lawn_extent}},
   \code{\link{lawn_line_distance}},
   \code{\link{lawn_midpoint}},
   \code{\link{lawn_point_on_surface}},
+  \code{\link{lawn_pt2line_distance}},
   \code{\link{lawn_square}}
 }
-

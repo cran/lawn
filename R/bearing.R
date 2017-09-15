@@ -1,14 +1,14 @@
 #' Get geographic bearing between two points
 #'
-#' Takes two \code{\link{data-Point}}'s and finds the geographic bearing
-#' between them
+#' Takes two [data-Point]'s and finds the geographic bearing
+#' between them.
 #'
 #' @export
-#' @param start starting \code{\link{data-Point}}
-#' @param end ending \code{\link{data-Point}}
+#' @param start Starting [data-Feature] with a single [data-Point]
+#' @param end Ending [data-Feature] with a single [data-Point]
 #' @template lint
 #' @family measurements
-#' @return bearing (numeric) in decimal degrees
+#' @return A numeric value of the bearing in degrees.
 #' @examples
 #' start <- '{
 #'  "type": "Feature",
@@ -36,6 +36,10 @@ lawn_bearing <- function(start, end, lint = FALSE) {
   start <- convert(start)
   end <- convert(end)
   lawnlint(list(start, end), lint)
+  if (lint) {
+    is_type(start, type_top = "Feature", type_lower = "Point")
+    is_type(end, type_top = "Feature", type_lower = "Point")
+  }
   ct$eval(sprintf("var bear = turf.bearing(%s, %s);", start, end))
   ct$get("bear")
 }

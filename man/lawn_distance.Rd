@@ -7,22 +7,23 @@
 lawn_distance(from, to, units = "kilometers", lint = FALSE)
 }
 \arguments{
-\item{from}{Origin point}
+\item{from}{Origin \link{data-Feature}<(\link{data-Point})>}
 
-\item{to}{Destination point}
+\item{to}{Destination \link{data-Feature}<(\link{data-Point})>}
 
-\item{units}{(character) Can be degrees, radians, miles, or kilometers}
+\item{units}{(character) Can be degrees, radians, miles, or kilometers
+(default).}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
 Single numeric value
 }
 \description{
-Calculates the distance between two \code{\link{data-Point}}'s in degress,
+Calculates the distance between two \link{data-Point}s in degress,
 radians, miles, or kilometers. Uses the
 \href{http://en.wikipedia.org/wiki/Haversine_formula}{Haversine formula}
 to account for global curvature.
@@ -50,12 +51,13 @@ lawn_distance(from, to)
 Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
   \code{\link{lawn_bbox}}, \code{\link{lawn_bearing}},
+  \code{\link{lawn_center_of_mass}},
   \code{\link{lawn_center}}, \code{\link{lawn_centroid}},
   \code{\link{lawn_destination}},
   \code{\link{lawn_envelope}}, \code{\link{lawn_extent}},
   \code{\link{lawn_line_distance}},
   \code{\link{lawn_midpoint}},
   \code{\link{lawn_point_on_surface}},
+  \code{\link{lawn_pt2line_distance}},
   \code{\link{lawn_square}}
 }
-

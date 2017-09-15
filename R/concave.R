@@ -1,16 +1,16 @@
 #' Concave hull polygon
 #'
-#' Takes a set of \code{\link{data-Point}}'s and returns a concave hull polygon.
+#' Takes a set of [data-Point]'s and returns a concave hull polygon.
 #' Internally, this implements a Monotone chain algorithm
 #'
 #' @export
-#' @param points input points in a \code{\link{data-FeatureCollection}}
-#' @param maxEdge the size of an edge necessary for part of the hull to
-#' become concave (in miles)
-#' @param units	used for maxEdge distance (miles [default] or kilometers)
+#' @param points Input points in a [data-FeatureCollection].
+#' @param maxEdge The size of an edge necessary for part of the hull to
+#' become concave (in miles).
+#' @param units	Used for maxEdge distance (miles (default) or kilometers).
 #' @template lint
 #' @family transformations
-#' @return \code{\link{data-Polygon}} a concave hull
+#' @return a concave hull [data-Polygon]
 #' @examples
 #' points <- '{
 #'   "type": "FeatureCollection",
@@ -67,6 +67,8 @@
 lawn_concave <- function(points, maxEdge = 1, units = "miles", lint = FALSE) {
   points <- convert(points)
   lawnlint(points, lint)
-  ct$eval(sprintf("var cv = turf.concave(%s, %s, '%s');", points, maxEdge, units))
+  if (lint) is_type(points, type_top = "FeatureCollection", type_lower = "Point")
+  ct$eval(sprintf("var cv = turf.concave(%s, %s, '%s');", points,
+                  maxEdge, units))
   structure(ct$get("cv"), class = "linestring")
 }

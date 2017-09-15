@@ -188,7 +188,7 @@ lawn_extent(dat)
 #  }'
 #  lawn_extent(dat, lint = TRUE)
 #  
-#  #> Error: Line 1 - "coordinates" property required
+#  #> Error: Line 1 - "coordinates" member required
 
 ## ----eval=FALSE----------------------------------------------------------
 #  view(lawn_data$points_average)

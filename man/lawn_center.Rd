@@ -4,31 +4,42 @@
 \alias{lawn_center}
 \title{Get center point}
 \usage{
-lawn_center(features, lint = FALSE)
+lawn_center(features, properties = NULL, lint = FALSE)
 }
 \arguments{
-\item{features}{input featurs, as a \code{\link{data-FeatureCollection}}}
+\item{features}{Input features, as a \link{data-Feature} or
+\link{data-FeatureCollection}}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{properties}{A list of properties. Default: \code{NULL}}
+
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a \code{\link{data-Point}} feature at the absolute center point of
-all input features
+A \link{data-Point} feature at the absolute center point of
+all input features.
 }
 \description{
-Takes a \code{\link{data-FeatureCollection}} and returns the
-absolute center point of all features
+Takes a \link{data-FeatureCollection} and returns the
+absolute center point of all features.
 }
 \examples{
 lawn_center(lawn_data$points_average)
+lawn_center(lawn_data$points_average, properties = list(
+  foo = "bar", hello = "world"))
+\dontrun{
+lawn_center(lawn_data$points_average) \%>\% view
+lawn_featurecollection(lawn_data$points_average) \%>\% view
+lawn_center(lawn_data$points_average) \%>\% view
+}
 }
 \seealso{
 Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
   \code{\link{lawn_bbox}}, \code{\link{lawn_bearing}},
+  \code{\link{lawn_center_of_mass}},
   \code{\link{lawn_centroid}},
   \code{\link{lawn_destination}},
   \code{\link{lawn_distance}}, \code{\link{lawn_envelope}},
@@ -36,6 +47,6 @@ Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_line_distance}},
   \code{\link{lawn_midpoint}},
   \code{\link{lawn_point_on_surface}},
+  \code{\link{lawn_pt2line_distance}},
   \code{\link{lawn_square}}
 }
-

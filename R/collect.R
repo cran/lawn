@@ -9,7 +9,7 @@
 #' @template math
 #' @template lint
 #' @family aggregations
-#' @return A FeatureCollection of \code{\link{data-Polygon}} features with
+#' @return A FeatureCollection of [data-Polygon] features with
 #' properties listed as \code{out_field}
 #' @author Jeff Hollister \email{hollister.jeff@@epa.gov}
 #' @examples
@@ -24,7 +24,15 @@
 #' lawn_collect(ex_polys, ex_pts, 'population', 'stuff') %>% view
 #' }
 lawn_collect <- function(polygons, points, in_field, out_field, lint = FALSE) {
+  # This code has been contributed by Jeff Hollister, US EPA
+  # Please read the following disclaimer:
+  # \url{https://www.epa.gov/home/github-contribution-disclaimer}
+
   lawnlint(list(polygons, points), lint)
+  if (lint)  {
+    is_type(polygons, type_top = "FeatureCollection", type_lower = "Polygon")
+    is_type(points, type_top = "FeatureCollection", type_lower = "Point")
+  }
   ct$eval(sprintf("var fc = turf.collect(%s, %s, '%s', '%s');",
                   convert(polygons),
                   convert(points),

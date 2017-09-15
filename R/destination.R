@@ -1,19 +1,19 @@
 #' Calculate destination point
 #'
-#' Takes a \code{\link{data-Point}} and calculates the location of a
-#' destination point given a distance in degrees, radians, miles, or kilometers; and
-#' bearing in degrees. Uses the
-#' \href{http://en.wikipedia.org/wiki/Haversine_formula}{Haversine formula} to account
-#' for global curvature.
+#' Takes a [data-Point] and calculates the location of a
+#' destination point given a distance in degrees, radians, miles, or
+#' kilometers; and bearing in degrees. Uses the
+#' [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula) to
+#' account for global curvature.
 #'
 #' @export
-#' @param start	starting point \code{\link{data-Point}}
-#' @param distance distance from the starting point
-#' @param bearing	ranging from -180 to 180
-#' @param units	miles, kilometers, degrees, or radians
+#' @param start	Starting point, a [data-Feature]<[data-Point]>
+#' @param distance Distance from the starting point.
+#' @param bearing	Ranging from -180 to 180.
+#' @param units	Miles, kilometers, degrees, or radians.
 #' @template lint
 #' @family measurements
-#' @return destination \code{\link{data-Point}}
+#' @return the calculated destination, a [data-Feature]<[data-Point]>
 #' @examples
 #' pt <- '{
 #'   "type": "Feature",
@@ -34,10 +34,13 @@
 #' lawn_destination(pt, 200, 90, "miles") %>% view
 #' }
 lawn_destination <- function(start, distance, bearing, units, lint = FALSE) {
-  if (abs(bearing) > 180) stop("bearing must be between -180 and 180", call. = FALSE)
+  if (abs(bearing) > 180) stop("bearing must be between -180 and 180",
+                               call. = FALSE)
   units <- match.arg(units, c("miles", "kilometers", "degrees", "radians"))
   start <- convert(start)
   lawnlint(start, lint)
-  ct$eval(sprintf("var dest = turf.destination(%s, %s, %s, '%s');", start, distance, bearing, units))
+  if (lint) is_type(start, "Feature", "Point")
+  ct$eval(sprintf("var dest = turf.destination(%s, %s, %s, '%s');",
+                  start, distance, bearing, units))
   structure(ct$get("dest"), class = "point")
 }

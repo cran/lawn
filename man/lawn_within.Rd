@@ -7,31 +7,43 @@
 lawn_within(points, polygons, lint = FALSE)
 }
 \arguments{
-\item{points}{\code{\link{data-FeatureCollection}} of points}
+\item{points}{\link{data-FeatureCollection} of points.}
 
-\item{polygons}{\code{\link{data-FeatureCollection}} of polygons}
+\item{polygons}{\link{data-FeatureCollection} of polygons.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-points that land within at least one polygon, as a
-\code{\link{data-FeatureCollection}}
+Points that land within at least one polygon, as a
+\link{data-FeatureCollection}.
 }
 \description{
-Takes a set of \code{\link{data-Point}}'s and a set of
-\code{\link{data-Polygon}}'s and returns points that fall within
-the polygons
+Takes a set of \link{data-Point}'s and a set of
+\link{data-Polygon}'s and returns points that fall within
+the polygons.
 }
 \examples{
 cat(lawn_data$points_within)
 cat(lawn_data$polygons_within)
 lawn_within(lawn_data$points_within, lawn_data$polygons_within)
+
+pt <- '{
+ "type": "Feature",
+ "properties": {},
+ "geometry": {
+    "type": "Point",
+    "coordinates": [-90.548630, 14.616599]
+  }
+}'
+poly <- lawn_featurecollection(lawn_buffer(pt, 5))
+pts <- lawn_featurecollection(lawn_point(c(-90.55, 14.62)))
+
+lawn_within(pts, poly)
 }
 \seealso{
 Other joins: \code{\link{lawn_inside}},
   \code{\link{lawn_tag}}
 }
-

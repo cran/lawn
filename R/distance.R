@@ -1,15 +1,16 @@
 #' Distance between two points
 #'
-#' Calculates the distance between two \code{\link{data-Point}}'s in degress,
+#' Calculates the distance between two [data-Point]s in degress,
 #' radians, miles, or kilometers. Uses the
-#' \href{http://en.wikipedia.org/wiki/Haversine_formula}{Haversine formula}
+#' [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula)
 #' to account for global curvature.
 #'
 #' @export
 #'
-#' @param from Origin point
-#' @param to Destination point
+#' @param from Origin [data-Feature]<([data-Point])>
+#' @param to Destination [data-Feature]<([data-Point])>
 #' @param units (character) Can be degrees, radians, miles, or kilometers
+#' (default).
 #' @template lint
 #' @family measurements
 #' @return Single numeric value
@@ -35,6 +36,10 @@ lawn_distance <- function(from, to, units = 'kilometers', lint = FALSE) {
   from <- convert(from)
   to <- convert(to)
   lawnlint(list(from, to), lint)
+  if (lint) {
+    is_type(from, "Feature", "Point")
+    is_type(to, "Feature", "Point")
+  }
   ct$eval(sprintf('var point1 = %s;', from))
   ct$eval(sprintf('var point2 = %s;', to))
   ct$eval(sprintf("var avg = turf.distance(point1, point2, '%s');", units))

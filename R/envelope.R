@@ -1,13 +1,13 @@
 #' Calculate envelope around features
 #'
 #' Takes any number of features and returns a rectangular
-#' \code{\link{data-Polygon}} that encompasses all vertices.
+#' [data-Polygon] that encompasses all vertices.
 #'
 #' @export
-#' @param fc \code{\link{data-FeatureCollection}}
+#' @param fc A [data-Feature] or [data-FeatureCollection]
 #' @template lint
 #' @family measurements
-#' @return a rectangular \code{\link{data-Polygon}} feature that
+#' @return a rectangular [data-Feature]<([data-Polygon])> that
 #' encompasses all vertices
 #' @examples
 #' fc <- '{
@@ -51,6 +51,7 @@
 lawn_envelope <- function(fc, lint = FALSE) {
   fc <- convert(fc)
   lawnlint(fc, lint)
+  if (lint) is_type(fc, c("Feature", "FeatureCollection"))
   ct$eval(sprintf("var env = turf.envelope(%s);", fc))
   structure(ct$get("env"), class = "polygon")
 }

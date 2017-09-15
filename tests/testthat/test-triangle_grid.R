@@ -31,10 +31,11 @@ test_that("lawn_triangle_grid fails correctly", {
   expect_error(lawn_triangle_grid(), "argument \"extent\" is missing, with no default")
   # empty featurecollection if bbox is not correct
   expect_error(lawn_triangle_grid(c(-96, 31, -84), 10, 'miles'),
-               "A coordinate, feature, or point geometry is required")
+               "coordinates must only contain numbers")
   # can't pass in a character string to cellWidth
-  expect_error(lawn_triangle_grid(c(-96, 31, -84, 40), "the", 'miles'), "the is not defined")
+  expect_error(lawn_triangle_grid(c(-96, 31, -84, 40), "the", 'miles'),
+               "must be of class")
   # can't pass in a character string to cellWidth
   expect_error(lawn_triangle_grid(c(-96, 31, -84, 40), 50, 'doesntexist'),
-               "Invalid unit")
+               "units is invalid")
 })

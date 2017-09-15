@@ -7,21 +7,21 @@
 lawn_bearing(start, end, lint = FALSE)
 }
 \arguments{
-\item{start}{starting \code{\link{data-Point}}}
+\item{start}{Starting \link{data-Feature} with a single \link{data-Point}}
 
-\item{end}{ending \code{\link{data-Point}}}
+\item{end}{Ending \link{data-Feature} with a single \link{data-Point}}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-bearing (numeric) in decimal degrees
+A numeric value of the bearing in degrees.
 }
 \description{
-Takes two \code{\link{data-Point}}'s and finds the geographic bearing
-between them
+Takes two \link{data-Point}'s and finds the geographic bearing
+between them.
 }
 \examples{
 start <- '{
@@ -50,14 +50,15 @@ lawn_bearing(start, end)
 \seealso{
 Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
-  \code{\link{lawn_bbox}}, \code{\link{lawn_center}},
-  \code{\link{lawn_centroid}},
+  \code{\link{lawn_bbox}},
+  \code{\link{lawn_center_of_mass}},
+  \code{\link{lawn_center}}, \code{\link{lawn_centroid}},
   \code{\link{lawn_destination}},
   \code{\link{lawn_distance}}, \code{\link{lawn_envelope}},
   \code{\link{lawn_extent}},
   \code{\link{lawn_line_distance}},
   \code{\link{lawn_midpoint}},
   \code{\link{lawn_point_on_surface}},
+  \code{\link{lawn_pt2line_distance}},
   \code{\link{lawn_square}}
 }
-

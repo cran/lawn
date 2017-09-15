@@ -7,12 +7,12 @@
 lawn_linestring(coordinates, properties = NULL)
 }
 \arguments{
-\item{coordinates}{A list of Positions}
+\item{coordinates}{A list of positions.}
 
-\item{properties}{A list of properties}
+\item{properties}{A list of properties.}
 }
 \value{
-a \code{\link{data-LineString}} feature
+A \link{data-Feature}<(\link{data-LineString})>
 }
 \description{
 Create a linestring
@@ -56,4 +56,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_random}}, \code{\link{lawn_remove}},
   \code{\link{lawn_sample}}
 }
-

@@ -4,36 +4,54 @@
 \alias{lawn_isolines}
 \title{Generate Isolines}
 \usage{
-lawn_isolines(points, z, resolution, breaks, lint = FALSE)
+lawn_isolines(points, breaks, z, propertiesToAllIsolines = c(),
+  propertiesPerIsoline = list(), resolution = NULL, lint = FALSE)
 }
 \arguments{
-\item{points}{Input points}
+\item{points}{Input points. a point grid, e.g., output of \code{\link[=lawn_point_grid]{lawn_point_grid()}}}
 
-\item{z}{(character) the property name in points from which z-values will be pulled}
+\item{breaks}{(numeric) Where to draw contours.}
 
-\item{resolution}{(numeric) resolution of the underlying grid}
+\item{z}{(character) The property name in points from which z-values will
+be pulled.}
 
-\item{breaks}{(numeric) where to draw contours}
+\item{propertiesToAllIsolines}{GeoJSON properties passed to ALL isolines}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{propertiesPerIsoline}{GeoJSON properties passed, in order, to the
+correspondent isoline; the breaks array will define the order in which the
+isolines are created}
+
+\item{resolution}{(numeric) Resolution of the underlying grid. THIS
+PARAMETER IS DEFUNCT}
+
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-\code{\link{data-FeatureCollection}} of isolines
-(\code{\link{data-LineString}} features)
+A \link{data-FeatureCollection} of isolines
+(\link{data-LineString} features).
 }
 \description{
-Takes \code{\link{data-Point}}'s with z-values and an array of value
+Takes \link{data-Point}'s with z-values and an array of value
 breaks and generates \href{http://en.wikipedia.org/wiki/Isoline}{isolines}
 }
+\details{
+Warning: this function seems to be broken, not sure why
+}
 \examples{
-pts <- lawn_random(n = 100, bbox = c(0, 30, 20, 50))
-pts$features$properties <- data.frame(z = round(rnorm(100, mean = 5)), stringsAsFactors = FALSE)
+\dontrun{
+# pts <- lawn_random(n = 100, bbox = c(0, 30, 20, 50))
+pts <- lawn_point_grid(c(0, 30, 20, 50), 100, 'miles')
+pts$features$properties <-
+  data.frame(temperature = round(rnorm(NROW(pts$features), mean = 5)),
+  stringsAsFactors = FALSE)
 breaks <- c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-lawn_isolines(pts, 'z', 15, breaks)
+lawn_isolines(points = pts, breaks, z = 'temperature')
 
+lawn_isolines(pts, breaks, 'temperature') \%>\% view
+}
 }
 \seealso{
 Other interpolation: \code{\link{lawn_hex_grid}},
@@ -42,4 +60,3 @@ Other interpolation: \code{\link{lawn_hex_grid}},
   \code{\link{lawn_square_grid}}, \code{\link{lawn_tin}},
   \code{\link{lawn_triangle_grid}}
 }
-

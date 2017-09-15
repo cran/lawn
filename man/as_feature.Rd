@@ -7,7 +7,7 @@
 as_feature(x)
 }
 \arguments{
-\item{x}{A \code{\link{data-FeatureCollection}}}
+\item{x}{A \link{data-FeatureCollection}.}
 }
 \description{
 Convert a FeatureCollection to a Feature
@@ -15,11 +15,14 @@ Convert a FeatureCollection to a Feature
 \details{
 If there are more than one feature within the featurecollection,
 each feature is split out into a separate feature, returned in a list.
-Each feature is a assigned a class matching it's GeoJSON data type
+Each feature is assigned a class matching it's GeoJSON data type
 (e.g., point, polygon, linestring).
 }
 \examples{
 as_feature(lawn_random())
 # as_feature(lawn_random("polygons"))
 }
-
+\seealso{
+\link{as.feature} , which is similarly named, but has a different
+purpose
+}

@@ -7,23 +7,23 @@
 lawn_concave(points, maxEdge = 1, units = "miles", lint = FALSE)
 }
 \arguments{
-\item{points}{input points in a \code{\link{data-FeatureCollection}}}
+\item{points}{Input points in a \link{data-FeatureCollection}.}
 
-\item{maxEdge}{the size of an edge necessary for part of the hull to
-become concave (in miles)}
+\item{maxEdge}{The size of an edge necessary for part of the hull to
+become concave (in miles).}
 
-\item{units}{used for maxEdge distance (miles [default] or kilometers)}
+\item{units}{Used for maxEdge distance (miles (default) or kilometers).}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-\code{\link{data-Polygon}} a concave hull
+a concave hull \link{data-Polygon}
 }
 \description{
-Takes a set of \code{\link{data-Point}}'s and returns a concave hull polygon.
+Takes a set of \link{data-Point}'s and returns a concave hull polygon.
 Internally, this implements a Monotone chain algorithm
 }
 \examples{
@@ -76,6 +76,9 @@ points <- '{
     ]
 }'
 lawn_concave(points, 1)
+\dontrun{
+lawn_concave(points) \%>\% view
+}
 }
 \seealso{
 Other transformations: \code{\link{lawn_bezier}},
@@ -84,4 +87,3 @@ Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_intersect}}, \code{\link{lawn_merge}},
   \code{\link{lawn_simplify}}, \code{\link{lawn_union}}
 }
-

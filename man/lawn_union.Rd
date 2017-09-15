@@ -7,26 +7,26 @@
 lawn_union(poly1, poly2, lint = FALSE)
 }
 \arguments{
-\item{poly1}{A polygon}
+\item{poly1}{A \link{data-Feature}<(\link{data-Polygon})>}
 
-\item{poly2}{A polygon}
+\item{poly2}{A \link{data-Feature}<(\link{data-Polygon})>}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a combined \code{\link{data-Polygon}} or
-\code{\link{data-MultiPolygon}} feature
+\link{data-Feature}<(\link{data-Polygon})> or
+\link{data-Feature}<(\link{data-MultiPolygon})>
 }
 \description{
-Finds the interesection of two \code{\link{data-Polygon}}'s and returns the
+Finds the intersection of two \link{data-Polygon}'s and returns the
 union of the two
 }
 \details{
-Contiguous polygons are combined, non-contiguous polygons are returned
-as MultiPolygon
+Contiguous polygons are combined, non-contiguous polygons
+are returned as MultiPolygon.
 }
 \examples{
 poly1 <- '{
@@ -67,12 +67,21 @@ poly2 <- '{
 }'
 lawn_union(poly1, poly2)
 
+\dontrun{
+view(poly1)
+view(poly2)
+lawn_union(poly1, poly2) \%>\% view()
+
+x1 <- lawn_buffer(lawn_point(c(-122.6375, 45.53)), 1500, "meters")
+x2 <- lawn_buffer(lawn_point(c(-122.6475, 45.53)), 1500, "meters")
+lawn_union(x1, x2)
+view(x1)
+view(x2)
+lawn_union(x1, x2) \%>\% view()
 }
-\author{
-Jeff Hollister \email{hollister.jeff@epa.gov}
 }
 \seealso{
-\code{\link{lawn_merge}}
+\link{lawn_merge}
 
 Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_buffer}}, \code{\link{lawn_concave}},
@@ -80,4 +89,6 @@ Other transformations: \code{\link{lawn_bezier}},
   \code{\link{lawn_intersect}}, \code{\link{lawn_merge}},
   \code{\link{lawn_simplify}}
 }
-
+\author{
+Jeff Hollister \email{hollister.jeff@epa.gov}
+}

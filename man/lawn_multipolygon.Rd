@@ -7,12 +7,12 @@
 lawn_multipolygon(coordinates, properties = NULL)
 }
 \arguments{
-\item{coordinates}{A list of LinearRings, or in json}
+\item{coordinates}{A list of LinearRings, or in json.}
 
-\item{properties}{A list of properties}
+\item{properties}{A list of properties.}
 }
 \value{
-a \code{\link{data-MultiPolygon}} feature
+A \link{data-Feature}<(\link{data-MultiPolygon})>
 }
 \description{
 Create a multipolygon
@@ -49,6 +49,9 @@ lawn_multipolygon("[[[[0,0],[0,10],[10,10],[10,0],[0,0]]]]")
 # Make a FeatureCollection
 lawn_featurecollection(lawn_multipolygon(rings))
 
+\dontrun{
+lawn_featurecollection(lawn_multipolygon(rings)) \%>\% view
+}
 }
 \seealso{
 Other data functions: \code{\link{lawn_featurecollection}},
@@ -60,4 +63,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_polygon}}, \code{\link{lawn_random}},
   \code{\link{lawn_remove}}, \code{\link{lawn_sample}}
 }
-

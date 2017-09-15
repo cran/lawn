@@ -1,13 +1,13 @@
 #' Get closest point on linestring to reference point
 #'
-#' Takes a line, a start \code{\link{data-Point}}, and a stop point and returns
+#' Takes a line, a start [data-Point], and a stop point and returns
 #' the line in between those points
 #'
 #' @export
-#' @param line line to snap to
-#' @param point point to snap from
+#' @param line [data-Feature]<([data-LineString])> to snap to
+#' @param point [data-Feature]<([data-Point])> to snap from
 #' @template lint
-#' @return A \code{\link{data-Point}}
+#' @return A [data-Feature]<([data-Point])>
 #' @examples
 #' line <- '{
 #'   "type": "Feature",
@@ -45,6 +45,10 @@ lawn_point_on_line <- function(line, point, lint = FALSE) {
   line <- convert(line)
   point <- convert(point)
   lawnlint(list(line, point), lint)
+  if (lint) {
+    is_type(line, type_top = "Feature", type_lower = "LineString")
+    is_type(point, type_top = "Feature", type_lower = "Point")
+  }
   ct$eval(sprintf("var exp = turf.pointOnLine(%s, %s);", line, point))
   structure(ct$get("exp"), class = "point")
 }

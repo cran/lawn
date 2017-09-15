@@ -2,50 +2,118 @@
 
 ## turf
 
-Currently (as of 2016-10-13) using `turf.js` `v3.5.2`
+Currently (as of 2017-09-14) using `turf` `v4.7.3`
 
-To recreate `inst/js/turf3.js`:
+To recreate `inst/js/turf473.js`:
 
-Download the minified file from <https://npmcdn.com/@turf/turf@3.5.2/turf.min.js>
+Download the minified file from <https://npmcdn.com/@turf/turf@4.7.3/turf.min.js>
 to `inst/js` directory in the `lawn` package
 
-## simple-statistics
+List methods available
 
-Currently (as of 2016-10-12) using `simple-statistics` `v2.1.0`
+```r
+library(V8)
+ct <- V8::v8()
+ct$source(system.file("js/turf473.js", package = 'lawn'))
+funs <- ct$get(JS('Object.keys(turf)'))
+sort(funs)
 
-To recreate `inst/js/simple-statistics.js`:
+# a single function
+ct$eval('turf.isolines')
+```
 
-Download the minified file from <https://npmcdn.com/simple-statistics@2.0.1/dist/simple-statistics.min.js>
-to `inst/js` directory in the `lawn` package
 
-## geojsonhint
+## @turf/meta
 
-Currently (as of 2016-10-12) using `geojsonhint` `v2.0.0-beta2`
+Currently (as of 2017-06-13) using `turf/meta` `v4.4.0`
 
-To recreate `inst/js/geojsohint-v2beta.js`:
-
-Install `geojsonhint` from NPM
+To recreate `inst/js/turf-meta.js`:
 
 ```
-npm install geojsonhint
+npm install @turf/meta
 ```
 
 Browserify
 
 ```
-echo "global.geojsonhint = require('geojsonhint');" > in.js
-browserify in.js -o geojsohint-v2beta.js
+echo "global.turfmeta = require('@turf/meta');" > in.js
+browserify in.js -o turf-meta.js
 ```
 
 Copy js file into the `inst/js` directory in the `lawn` package
 
 ```
-cp geojsohint-v2beta.js lawn/inst/js
+cp turf-meta.js lawn/inst/js/
 ```
+
+
+
+## @turf/invariant
+
+Currently (as of 2017-06-13) using `turf/invariant` `v4.4.0`
+
+To recreate `inst/js/turf-invariant.js`:
+
+```
+npm install @turf/invariant
+```
+
+Browserify
+
+```
+echo "global.turfinvariant = require('@turf/invariant');" > in.js
+browserify in.js -o turf-invariant.js
+```
+
+Copy js file into the `inst/js` directory in the `lawn` package
+
+```
+cp turf-invariant.js lawn/inst/js/
+```
+
+
+
+## simple-statistics
+
+Currently (as of 2017-05-06) using `simple-statistics` `v4.1.0`
+
+To recreate `inst/js/simple-statistics.js`:
+
+Download the minified file from <https://npmcdn.com/simple-statistics@4.1.0/dist/simple-statistics.min.js>
+to `inst/js` directory in the `lawn` package
+
+
+
+## geojsonhint
+
+Currently (as of 2017-06-13) using `geojsonhint` `v2.0.1`
+
+To recreate `inst/js/geojsohint-v201.js`:
+
+Install `geojsonhint` from NPM
+
+```
+npm i @mapbox/geojsonhint
+```
+
+Browserify
+
+```
+echo "global.geojsonhint = require('@mapbox/geojsonhint');" > in.js
+browserify in.js -o geojsohint-v201.js
+```
+
+Copy js file into the `inst/js` directory in the `lawn` package
+
+```
+cp geojsohint-v201.js lawn/inst/js
+```
+
+
 
 ## clone
 
-Currently (as of 2016-10-12) using `clone` `v2.0.0-beta2`
+Currently (as of 2017-06-13) using `clone` `v2.1.1`
 
 To recreate `inst/js/cloner.js`:
 
@@ -68,9 +136,11 @@ Copy js file into the `inst/js` directory in the `lawn` package
 cp cloner.js lawn/inst/js
 ```
 
+
+
 ## geojson-random
 
-Currently (as of 2016-10-12) using `geojson-random` `v0.2.2`
+Currently (as of 2017-06-13) using `geojson-random` `v0.4.0`
 
 To recreate `inst/js/geojson_random.js`:
 

@@ -8,26 +8,27 @@ lawn_random(type = "points", n = 10, bbox = NULL, num_vertices = NULL,
   max_radial_length = NULL)
 }
 \arguments{
-\item{type}{type of features desired: 'points' or 'polygons'}
+\item{type}{Type of features desired: 'points' or 'polygons'.}
 
-\item{n}{(integer) Number of features to generate}
+\item{n}{(integer) Number of features to generate.}
 
-\item{bbox}{A bounding box inside of which geometries are placed. In the case
-of Point features, they are guaranteed to be within this bounds, while Polygon
-features have their centroid within the bounds.}
+\item{bbox}{A bounding box inside of which geometries are placed. In the
+case of Point features, they are guaranteed to be within this bounds,
+while Polygon features have their centroid within the bounds.}
 
 \item{num_vertices}{Number options.vertices the number of vertices added to
 polygon features.}
 
-\item{max_radial_length}{Number    <optional> 10     the total number of decimal degrees
-longitude or latitude that a polygon can extent outwards to from its center}
+\item{max_radial_length}{Number    <optional> 10     The total number of decimal
+degrees longitude or latitude that a polygon can extent outwards to from
+its center.}
 }
 \value{
-A \code{\link{data-FeatureCollection}}
+A \link{data-FeatureCollection}.
 }
 \description{
-Generates random \code{\link{data-GeoJSON}} data, including \code{\link{data-Point}}'s
-and \code{\link{data-Polygon}}'s, for testing and experimentation
+Generates random \link{data-GeoJSON} data, including \link{data-Point}'s
+and \link{data-Polygon}'s, for testing and experimentation
 }
 \examples{
 ## set of points
@@ -51,4 +52,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_point}}, \code{\link{lawn_polygon}},
   \code{\link{lawn_remove}}, \code{\link{lawn_sample}}
 }
-

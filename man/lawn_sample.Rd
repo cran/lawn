@@ -7,21 +7,21 @@
 lawn_sample(features = NULL, n = 100, lint = FALSE)
 }
 \arguments{
-\item{features}{A FeatureCollection}
+\item{features}{A \link{data-FeatureCollection}}
 
-\item{n}{(integer) Number of features to generate}
+\item{n}{(integer) Number of features to generate.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-A \code{\link{data-FeatureCollection}}
+A \link{data-FeatureCollection}
 }
 \description{
-Takes a \code{\link{data-FeatureCollection}} and returns a
-\code{\link{data-FeatureCollection}} with given number of features at random
+Takes a \link{data-FeatureCollection} and returns a
+\link{data-FeatureCollection} with given number of features at random.
 }
 \examples{
 lawn_sample(lawn_data$points_average, 1)
@@ -39,4 +39,3 @@ Other data functions: \code{\link{lawn_featurecollection}},
   \code{\link{lawn_point}}, \code{\link{lawn_polygon}},
   \code{\link{lawn_random}}, \code{\link{lawn_remove}}
 }
-

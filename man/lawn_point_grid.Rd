@@ -4,22 +4,31 @@
 \alias{lawn_point_grid}
 \title{Create a PointGrid}
 \usage{
-lawn_point_grid(extent, cellWidth, units)
+lawn_point_grid(extent, cellSide, units = "kilometers", centered = TRUE,
+  bboxIsMask = FALSE)
 }
 \arguments{
-\item{extent}{(numeric) extent in [minX, minY, maxX, maxY] order}
+\item{extent}{(numeric) Extent in \code{[minX, minY, maxX, maxY]} order.}
 
-\item{cellWidth}{(integer) width of each cell}
+\item{cellSide}{(integer) the distance between points}
 
-\item{units}{(character) units to use for cellWidth, one of 'miles' or
-'kilometers'}
+\item{units}{(character) Units to use for cellWidth, one of 'miles' or
+'kilometers' (default).}
+
+\item{centered}{(logical) adjust points position to center the grid into
+bbox. This parameter is going to be removed in the next major release,
+having the output always centered into bbox. Default: \code{TRUE}}
+
+\item{bboxIsMask}{if \code{TRUE}, and bbox is a Polygon or MultiPolygon, the
+grid Point will be created only if inside the bbox Polygon(s).
+Default: \code{FALSE}}
 }
 \value{
-\code{\link{data-FeatureCollection}} grid of points
+\link{data-FeatureCollection} grid of points.
 }
 \description{
 Takes a bounding box and a cell depth and returns a set of
-\code{\link{data-Point}}'s in a grid
+\link{data-Point}'s in a grid
 }
 \examples{
 lawn_point_grid(c(-77.3876, 38.7198, -76.9482, 39.0277), 30, 'miles')
@@ -33,4 +42,3 @@ Other interpolation: \code{\link{lawn_hex_grid}},
   \code{\link{lawn_square_grid}}, \code{\link{lawn_tin}},
   \code{\link{lawn_triangle_grid}}
 }
-

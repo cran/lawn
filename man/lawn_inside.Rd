@@ -7,26 +7,27 @@
 lawn_inside(point, polygon, lint = FALSE)
 }
 \arguments{
-\item{point}{Input point}
+\item{point}{Input point.}
 
-\item{polygon}{Input polygon or multipolygon}
+\item{polygon}{Input polygon or multipolygon.}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
 \code{TRUE} if the Point IS inside the Polygon, \code{FALSE} if
-the Point IS NOT inside the Polygon
+the Point IS NOT inside the Polygon.
 }
 \description{
-Takes a \code{\link{data-Point}} and a \code{\link{data-Polygon}} or
-\code{\link{data-MultiPolygon}} and determines if the point
+Takes a \link{data-Point} and a \link{data-Polygon} or
+\link{data-MultiPolygon} and determines if the point
 resides inside the polygon
 }
 \details{
-The polygon can be convex or concave. The function accounts for holes
+The polygon can be convex or concave. The function accounts for
+holes.
 }
 \examples{
 point1 <- '{
@@ -70,4 +71,3 @@ lawn_inside(point2, poly)
 Other joins: \code{\link{lawn_tag}},
   \code{\link{lawn_within}}
 }
-

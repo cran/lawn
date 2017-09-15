@@ -7,15 +7,15 @@
 lawn_explode(input, lint = FALSE)
 }
 \arguments{
-\item{input}{Feature of features}
+\item{input}{\link{data-Feature} or \link{data-FeatureCollection}}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a \code{\link{data-FeatureCollection}} of points
+a \link{data-FeatureCollection} of points
 }
 \description{
 Takes a feature or set of features and returns all positions as points
@@ -38,5 +38,10 @@ poly <- '{
  }
 }'
 lawn_explode(poly)
+\dontrun{
+lawn_data$polygons_average \%>\% view
+lawn_explode(lawn_data$polygons_average) \%>\% view
+lawn_data$polygons_within \%>\% view
+lawn_explode(lawn_data$polygons_within) \%>\% view
 }
-
+}

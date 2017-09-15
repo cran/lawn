@@ -4,18 +4,21 @@
 \alias{lawn_centroid}
 \title{Centroid}
 \usage{
-lawn_centroid(features, lint = FALSE)
+lawn_centroid(features, properties = NULL, lint = FALSE)
 }
 \arguments{
-\item{features}{Input features}
+\item{features}{Input features, as a \link{data-Feature} or
+\link{data-FeatureCollection}}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{properties}{A list of properties. Default: \code{NULL}}
+
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-Feature - centroid of the input features
+a \link{data-Feature}<(\link{data-Point})> - centroid of the input features
 }
 \description{
 Takes one or more features and calculates the centroid using the arithmetic
@@ -38,11 +41,14 @@ poly <- '{
   }
 }'
 lawn_centroid(features = poly)
+lawn_centroid(features = as.feature(poly))
+lawn_centroid(features = poly, properties = list(foo = "bar"))
 }
 \seealso{
 Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
   \code{\link{lawn_bbox}}, \code{\link{lawn_bearing}},
+  \code{\link{lawn_center_of_mass}},
   \code{\link{lawn_center}},
   \code{\link{lawn_destination}},
   \code{\link{lawn_distance}}, \code{\link{lawn_envelope}},
@@ -50,6 +56,6 @@ Other measurements: \code{\link{lawn_along}},
   \code{\link{lawn_line_distance}},
   \code{\link{lawn_midpoint}},
   \code{\link{lawn_point_on_surface}},
+  \code{\link{lawn_pt2line_distance}},
   \code{\link{lawn_square}}
 }
-

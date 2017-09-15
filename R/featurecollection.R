@@ -3,7 +3,7 @@
 #' @export
 #' @param features Input features, can be json as json or character class,
 #' or a point, polygon, linestring, or centroid class, or many of those
-#' things in a list
+#' things in a list.
 #' @family data functions
 #' @examples \dontrun{
 #' # points
@@ -97,9 +97,22 @@
 #' cent <- lawn_centroid(poly)
 #' lawn_featurecollection(cent)
 #'
+#' # from a feature
+#' pt <- '{
+#'  "type": "Feature",
+#'  "properties": {},
+#'  "geometry": {
+#'    "type": "Point",
+#'    "coordinates": [-90.548630, 14.616599]
+#'   }
+#' }'
+#' x <- lawn_buffer(pt, 5)
+#' lawn_featurecollection(x)
+#'
 #' # From a geo_list object from geojsonio package
 #' # library("geojsonio")
-#' # vecs <- list(c(100.0,0.0), c(101.0,0.0), c(101.0,1.0), c(100.0,1.0), c(100.0,0.0))
+#' # vecs <- list(c(100.0,0.0), c(101.0,0.0), c(101.0,1.0), c(100.0,1.0),
+#' #   c(100.0,0.0))
 #' # x <- geojson_list(vecs, geometry="polygon")
 #' # lawn_featurecollection(x)
 #' }
@@ -110,7 +123,13 @@ lawn_featurecollection <- function(features) {
 # no method, method
 #' @export
 lawn_featurecollection.default <- function(features) {
-  stop("no 'lawn_featurecollection' method for ", class(features), call. = FALSE)
+  stop("no 'lawn_featurecollection' method for ", class(features),
+       call. = FALSE)
+}
+
+#' @export
+lawn_featurecollection.feature <- function(features) {
+  do_fc(list(features))
 }
 
 # from a list, could be many different things in the list ----
@@ -127,7 +146,8 @@ lawn_featurecollection.list <- function(features) {
         switch(type,
                polygon = lawn_polygon(z$features$geometry$coordinates[[1]]),
                point = lawn_point(z$features$geometry$coordinates[[1]]),
-               linestring = lawn_linestring(z$features$geometry$coordinates[[1]]))
+               linestring =
+                 lawn_linestring(z$features$geometry$coordinates[[1]]))
       } else {
         z
       }
@@ -176,7 +196,7 @@ lawn_featurecollection.centroid <- function(features) {
 #' @export
 lawn_featurecollection.character <- function(features) {
   res <- tryCatch(jsonlite::fromJSON(features), error = function(e) e)
-  if (!is(res, "simpleError")) {
+  if (!inherits(res, "simpleError")) {
     if (res$type == "FeatureCollection") {
       structure(res, class = "featurecollection")
     } else {
@@ -213,7 +233,8 @@ lawn_featurecollection.featurecollection <- function(features) {
 
 do_fc <- function(features) {
   fts <- unlist(vapply(features, as.turf, ""))
-  ct$eval(sprintf("var features = %s;", sprintf("[ %s ]", paste0(fts, collapse = ", "))))
+  ct$eval(sprintf("var features = %s;", sprintf("[ %s ]",
+                                                paste0(fts, collapse = ", "))))
   ct$eval("var feet = turf.featureCollection(features);")
   as.fc(ct$get("feet"))
 }

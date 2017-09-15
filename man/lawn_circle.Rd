@@ -8,28 +8,26 @@ lawn_circle(center, radius, steps = FALSE, units = "kilometers",
   lint = FALSE)
 }
 \arguments{
-\item{center}{the center \code{\link{data-Point}}}
+\item{center}{The center, a \link{data-Feature}<(\link{data-Point})>}
 
-\item{radius}{(integer) radius of the circle}
+\item{radius}{(integer) Radius of the circle.}
 
-\item{steps}{(integer) number of steps}
+\item{steps}{(integer) Number of steps.}
 
-\item{units}{(character) (default kilometers) ) miles, kilometers,
-degrees, or radians}
+\item{units}{(character) Miles, kilometers (default), degrees, or radians}
 
-\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing time
-as the object to get linted increases in size, so probably use by
-default for small objects, but not for large if you know they are good geojson
-objects. Default: \code{FALSE}}
+\item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
+time as the object to get linted increases in size, so probably use by
+default for small objects, but not for large if you know they are good
+geojson objects. Default: \code{FALSE}}
 }
 \value{
-a
-
-a \code{\link{data-Polygon}}
+a \link{data-Feature}<(\link{data-Polygon})>
 }
 \description{
-Takes a \code{\link{data-Point}} and calculates the circle polygon given
-a radius in degrees, radians, miles, or kilometers; and steps for precision
+Takes a \link{data-Point} and calculates the circle polygon given
+a radius in degrees, radians, miles, or kilometers; and steps
+for precision
 }
 \examples{
 pt <- '{
@@ -44,8 +42,16 @@ pt <- '{
 }'
 
 lawn_circle(pt, radius = 5, steps = 10)
+\dontrun{
+lawn_circle(pt, radius = 5, steps = 10) \%>\% view
+lawn_circle(pt, radius = 4, steps = 10) \%>\% view
+lawn_circle(pt, radius = 3, steps = 10) \%>\% view
+lawn_circle(pt, radius = 10, steps = 10) \%>\% view
+lawn_circle(pt, radius = 5, steps = 5) \%>\% view
+lawn_circle(pt, radius = 5, steps = 4) \%>\% view
+}
 }
 \seealso{
-Other assertions: \code{\link{lawn_tesselate}}
+Other assertions: \code{\link{lawn_dissolve}},
+  \code{\link{lawn_tesselate}}
 }
-
