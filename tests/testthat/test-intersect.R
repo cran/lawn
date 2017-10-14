@@ -37,9 +37,12 @@ poly2 <- '{
  }
 }'
 
-a <- lawn_intersect(poly1, poly2)
 
 test_that("works returns correct classes", {
+  skip_on_fedora()
+
+  a <- lawn_intersect(poly1, poly2)
+
   expect_is(a, "polygon")
   expect_is(a$type, "character")
   expect_is(a$geometry, "list")
@@ -49,6 +52,8 @@ test_that("works returns correct classes", {
 })
 
 test_that("fails correctly", {
+  skip_on_fedora()
+
   expect_error(lawn_intersect(),
                "argument \"poly1\" is missing, with no default")
   expect_error(lawn_intersect(lawn_data$points_average, lawn_data$points_count),

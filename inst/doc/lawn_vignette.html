@@ -11,7 +11,7 @@
 
 <meta name="author" content="Scott Chamberlain and Jeff Hollister" />
 
-<meta name="date" content="2017-09-15" />
+<meta name="date" content="2017-10-13" />
 
 <title>Introduction to the lawn package</title>
 
@@ -217,7 +217,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Introduction to the lawn package</h1>
 <h4 class="author"><em>Scott Chamberlain and Jeff Hollister</em></h4>
-<h4 class="date"><em>2017-09-15</em></h4>
+<h4 class="date"><em>2017-10-13</em></h4>
 
 </div>
 
@@ -312,13 +312,13 @@ to &lt;- '{
 <h2>random set of points</h2>
 <pre class="r"><code>lawn_random(n = 2)
 #&gt; &lt;FeatureCollection&gt;
-#&gt;   Bounding box: -67.7 -39.9 36.6 72.0
+#&gt;   Bounding box: -119.3 13.6 -36.7 15.3
 #&gt;   No. features: 2
 #&gt;   No. points: 4
 #&gt;   Properties: NULL</code></pre>
 <pre class="r"><code>lawn_random(n = 5)
 #&gt; &lt;FeatureCollection&gt;
-#&gt;   Bounding box: -147.8 -62.4 163.6 31.7
+#&gt;   Bounding box: -120.4 -12.1 174.6 74.5
 #&gt;   No. features: 5
 #&gt;   No. points: 10
 #&gt;   Properties: NULL</code></pre>
@@ -327,18 +327,18 @@ to &lt;- '{
 <h2>random features with geojson-random</h2>
 <p>Positions</p>
 <pre class="r"><code>gr_position()
-#&gt; [1]  79.69816 -43.57468</code></pre>
+#&gt; [1] -105.06183  -44.67876</code></pre>
 <p>Points</p>
 <pre class="r"><code>gr_point(2)
 #&gt; &lt;FeatureCollection&gt;
-#&gt;   Bounding box: -40.5 -67.6 -27.8 86.5
+#&gt;   Bounding box: 148.9 4.6 156.1 23.5
 #&gt;   No. features: 2
 #&gt;   No. points: 4
 #&gt;   Properties: NULL</code></pre>
 <p>Polygons</p>
 <pre class="r"><code>gr_polygon(n = 1, vertices = 5, max_radial_length = 5)
 #&gt; &lt;FeatureCollection&gt;
-#&gt;   Bounding box: 55.1 -86.6 59.6 -82.1
+#&gt;   Bounding box: -116.1 61.2 -108.8 64.4
 #&gt;   No. features: 1
 #&gt;   No. points: 12
 #&gt;   Properties: NULL</code></pre>
@@ -348,7 +348,7 @@ to &lt;- '{
 <pre class="r"><code>dat &lt;- lawn_data$points_average
 lawn_sample(dat, 1)
 #&gt; &lt;FeatureCollection&gt;
-#&gt;   Bounding box: 10.8 59.9 10.8 59.9
+#&gt;   Bounding box: 10.7 59.9 10.7 59.9
 #&gt;   No. features: 1
 #&gt;   No. points: 2
 #&gt;   Properties: 
@@ -361,18 +361,18 @@ lawn_sample(dat, 1)
 #&gt;   No. points: 4
 #&gt;   Properties: 
 #&gt;   population
-#&gt; 1        200
+#&gt; 1        300
 #&gt; 2        600</code></pre>
 <pre class="r"><code>lawn_sample(dat, 3)
 #&gt; &lt;FeatureCollection&gt;
-#&gt;   Bounding box: 10.7 59.9 10.7 59.9
+#&gt;   Bounding box: 10.7 59.9 10.8 59.9
 #&gt;   No. features: 3
 #&gt;   No. points: 6
 #&gt;   Properties: 
 #&gt;   population
-#&gt; 1        100
+#&gt; 1        600
 #&gt; 2        200
-#&gt; 3        600</code></pre>
+#&gt; 3        300</code></pre>
 </div>
 <div id="extent" class="section level2">
 <h2>extent</h2>
