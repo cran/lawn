@@ -20,7 +20,6 @@ a \link{data-Feature}<(\link{data-Point})>
 \description{
 Takes a \link{data-Feature} or a \link{data-FeatureCollection}
 and returns its center of mass using formula
-\url{https://en.wikipedia.org/wiki/Centroid#Centroid_of_polygon}
 }
 \examples{
 x <- '{
@@ -42,17 +41,22 @@ lawn_center_of_mass(x)
 lawn_center_of_mass(lawn_data$polygons_average)
 }
 \seealso{
-Other measurements: \code{\link{lawn_along}},
-  \code{\link{lawn_area}}, \code{\link{lawn_bbox_polygon}},
-  \code{\link{lawn_bbox}}, \code{\link{lawn_bearing}},
-  \code{\link{lawn_center}}, \code{\link{lawn_centroid}},
-  \code{\link{lawn_destination}},
-  \code{\link{lawn_distance}}, \code{\link{lawn_envelope}},
-  \code{\link{lawn_extent}},
-  \code{\link{lawn_line_distance}},
-  \code{\link{lawn_midpoint}},
-  \code{\link{lawn_point_on_surface}},
-  \code{\link{lawn_pt2line_distance}},
-  \code{\link{lawn_square}}
+Other measurements: 
+\code{\link{lawn_along}()},
+\code{\link{lawn_area}()},
+\code{\link{lawn_bbox_polygon}()},
+\code{\link{lawn_bbox}()},
+\code{\link{lawn_bearing}()},
+\code{\link{lawn_center}()},
+\code{\link{lawn_centroid}()},
+\code{\link{lawn_destination}()},
+\code{\link{lawn_distance}()},
+\code{\link{lawn_envelope}()},
+\code{\link{lawn_extent}()},
+\code{\link{lawn_line_distance}()},
+\code{\link{lawn_midpoint}()},
+\code{\link{lawn_point_on_feature}()},
+\code{\link{lawn_pt2line_distance}()},
+\code{\link{lawn_square}()}
 }
 \concept{measurements}

@@ -7,8 +7,8 @@
 lawn_boolean_overlap(feature1, feature2, lint = FALSE)
 }
 \arguments{
-\item{feature1, feature2}{any \link{data-Geometry}/\href{<[data-LineString]|[data-MultiLineString]|[data-Polygon]|[data-MultiPolygon]}{data-Feature}
-objects}
+\item{feature1, feature2}{any data-Geometry/data-Feature(
+data-LineString|data-MultiLineString|data-Polygon|data-MultiPolygon) objects}
 
 \item{lint}{(logical) Lint or not. Uses geojsonhint. Takes up increasing
 time as the object to get linted increases in size, so probably use by
@@ -29,11 +29,12 @@ lawn_boolean_overlap(lawn_polygon(poly1), lawn_polygon(poly2))
 lawn_boolean_overlap(lawn_polygon(poly2), lawn_polygon(poly3))
 }
 \seealso{
-Other boolean functions: \code{\link{lawn_boolean_clockwise}},
-  \code{\link{lawn_boolean_contains}},
-  \code{\link{lawn_boolean_crosses}},
-  \code{\link{lawn_boolean_disjoint}},
-  \code{\link{lawn_boolean_pointonline}},
-  \code{\link{lawn_boolean_within}}
+Other boolean functions: 
+\code{\link{lawn_boolean_clockwise}()},
+\code{\link{lawn_boolean_contains}()},
+\code{\link{lawn_boolean_crosses}()},
+\code{\link{lawn_boolean_disjoint}()},
+\code{\link{lawn_boolean_pointonline}()},
+\code{\link{lawn_boolean_within}()}
 }
 \concept{boolean functions}

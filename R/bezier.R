@@ -1,7 +1,7 @@
 #' Curve a linestring
 #'
 #' Takes a [data-LineString] and returns a curved version
-#' by applying a \href{http://en.wikipedia.org/wiki/Bezier_spline}{Bezier}
+#' by applying a Bezier 
 #' spline algorithm.
 #'
 #' @export
@@ -32,7 +32,7 @@ lawn_bezier <- function(line, resolution = 10000L, sharpness = 0.85,
   line <- convert(line)
   lawnlint(line, lint)
   if (lint) is_type(line, type_top = "Feature", type_lower = "LineString")
-  ct$eval(sprintf("var bz = turf.bezier(%s, %s, %s);", line, resolution,
-                  sharpness))
+  ct$eval(sprintf("var bz = turf.bezierSpline(%s, {resolution:%s, sharpness:%s});",
+    line, resolution, sharpness))
   structure(ct$get("bz"), class = "linestring")
 }

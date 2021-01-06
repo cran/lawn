@@ -20,7 +20,7 @@ a convex hull \link{data-Polygon}
 \description{
 Takes a set of \link{data-Point}'s and returns a convex
 hull polygon. Internally, this uses the
-\href{https://github.com/mikolalysenko/convex-hull}{convex-hull} module
+convex-hull  module
 that implements a Monotone chain hull
 }
 \examples{
@@ -78,10 +78,14 @@ lawn_convex(points) \%>\% view
 }
 }
 \seealso{
-Other transformations: \code{\link{lawn_bezier}},
-  \code{\link{lawn_buffer}}, \code{\link{lawn_concave}},
-  \code{\link{lawn_difference}},
-  \code{\link{lawn_intersect}}, \code{\link{lawn_merge}},
-  \code{\link{lawn_simplify}}, \code{\link{lawn_union}}
+Other transformations: 
+\code{\link{lawn_bezier}()},
+\code{\link{lawn_buffer}()},
+\code{\link{lawn_concave}()},
+\code{\link{lawn_difference}()},
+\code{\link{lawn_intersect}()},
+\code{\link{lawn_merge}()},
+\code{\link{lawn_simplify}()},
+\code{\link{lawn_union}()}
 }
 \concept{transformations}

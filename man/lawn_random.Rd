@@ -4,11 +4,19 @@
 \alias{lawn_random}
 \title{Generate random data}
 \usage{
-lawn_random(type = "points", n = 10, bbox = NULL,
-  num_vertices = NULL, max_radial_length = NULL)
+lawn_random(
+  type = "points",
+  n = 10,
+  bbox = NULL,
+  num_vertices = 10,
+  max_radial_length = 10,
+  max_length = 1e-04,
+  max_rotation = pi/8
+)
 }
 \arguments{
-\item{type}{Type of features desired: 'points' or 'polygons'.}
+\item{type}{Type of features desired: 'position', 'points', 'polygons',
+or 'lines'}
 
 \item{n}{(integer) Number of features to generate.}
 
@@ -16,40 +24,55 @@ lawn_random(type = "points", n = 10, bbox = NULL,
 case of Point features, they are guaranteed to be within this bounds,
 while Polygon features have their centroid within the bounds.}
 
-\item{num_vertices}{Number options.vertices the number of vertices added to
-polygon features.}
+\item{num_vertices}{(numeric) the number of vertices added to
+polygon features. default: \code{10}}
 
-\item{max_radial_length}{Number    <optional> 10     The total number of decimal
-degrees longitude or latitude that a polygon can extent outwards to from
-its center.}
+\item{max_radial_length}{(numeric) The total number of decimal
+degrees longitude or latitude that a polygon can extent outwards to
+from its center. default: \code{10}}
+
+\item{max_length}{(numeric) maximum number of decimal degrees that a
+vertex can be from its predecessor. default: \code{0.0001}}
+
+\item{max_rotation}{(numeric) maximum number of radians that a line
+segment can turn from the previous segment. default: \code{pi/8}}
 }
 \value{
-A \link{data-FeatureCollection}.
+A \link{data-FeatureCollection}
 }
 \description{
 Generates random \link{data-GeoJSON} data, including \link{data-Point}'s
 and \link{data-Polygon}'s, for testing and experimentation
 }
 \examples{
+## a position
+lawn_random("position")
 ## set of points
 lawn_random(n = 2)
 lawn_random(n = 10)
 ## set of polygons
 lawn_random('polygons', 2)
 lawn_random('polygons', 10)
+## set of lines
+lawn_random('lines', 2)
+lawn_random('lines', 10)
 # with options
 lawn_random(bbox = c(-70, 40, -60, 60))
 lawn_random(num_vertices = 5)
 }
 \seealso{
-Other data functions: \code{\link{lawn_featurecollection}},
-  \code{\link{lawn_feature}}, \code{\link{lawn_filter}},
-  \code{\link{lawn_geometrycollection}},
-  \code{\link{lawn_linestring}},
-  \code{\link{lawn_multilinestring}},
-  \code{\link{lawn_multipoint}},
-  \code{\link{lawn_multipolygon}},
-  \code{\link{lawn_point}}, \code{\link{lawn_polygon}},
-  \code{\link{lawn_remove}}, \code{\link{lawn_sample}}
+Other data functions: 
+\code{\link{lawn_featurecollection}()},
+\code{\link{lawn_feature}()},
+\code{\link{lawn_filter}()},
+\code{\link{lawn_geometrycollection}()},
+\code{\link{lawn_linestring}()},
+\code{\link{lawn_multilinestring}()},
+\code{\link{lawn_multipoint}()},
+\code{\link{lawn_multipolygon}()},
+\code{\link{lawn_point}()},
+\code{\link{lawn_polygon}()},
+\code{\link{lawn_remove}()},
+\code{\link{lawn_sample}()}
 }
 \concept{data functions}

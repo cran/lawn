@@ -4,8 +4,7 @@
 \alias{lawn_transform_rotate}
 \title{Rotate a GeoJSON feature}
 \usage{
-lawn_transform_rotate(x, angle, pivot = c(0, 0), mutate = FALSE,
-  lint = FALSE)
+lawn_transform_rotate(x, angle, pivot = c(0, 0), mutate = FALSE, lint = FALSE)
 }
 \arguments{
 \item{x}{a feature}
@@ -32,8 +31,7 @@ Rotates any geojson Feature or Geometry of a specified angle, around its
 centroid or a given pivot point
 }
 \note{
-all rotations follow the right-hand rule:
-\url{https://en.wikipedia.org/wiki/Right-hand_rule}
+all rotations follow the right-hand rule
 }
 \examples{
 x <- '{

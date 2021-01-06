@@ -15,7 +15,7 @@
 \alias{data-GeoJSON}
 \title{Description of GeoJSON data types}
 \description{
-GeoJSON types based on \url{https://tools.ietf.org/html/rfc7946}
+GeoJSON types based on
 }
 \section{GeoJSON object}{
 
@@ -63,7 +63,7 @@ empty "coordinates" arrays as null objects.
 
 For type "Point", the "coordinates" member must be a single position.
 
-Example JSON: \code{{ "type": "Point", "coordinates": [100.0, 0.0] }}
+Example JSON: \verb{\{ "type": "Point", "coordinates": [100.0, 0.0] \}}
 
 In \code{lawn}: \code{lawn_point(c(1, 2))}
 

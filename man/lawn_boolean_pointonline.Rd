@@ -4,13 +4,17 @@
 \alias{lawn_boolean_pointonline}
 \title{Boolean overlap}
 \usage{
-lawn_boolean_pointonline(point, linestring, ignoreEndVertices = FALSE,
-  lint = FALSE)
+lawn_boolean_pointonline(
+  point,
+  linestring,
+  ignoreEndVertices = FALSE,
+  lint = FALSE
+)
 }
 \arguments{
-\item{point}{any \link{data-Geometry}/\href{[data-Point]}{data-Feature}}
+\item{point}{any \link{data-Geometry}/\link{data-Feature} data-Point}
 
-\item{linestring}{any \link{data-Geometry}/\href{[data-LineString]}{data-Feature}}
+\item{linestring}{any \link{data-Geometry}/\link{data-Feature} data-LineString}
 
 \item{ignoreEndVertices}{(logical) whether to ignore the start and end
 vertices. Default: `FALSE}
@@ -31,11 +35,12 @@ l1 <- "[[-1, -1],[1, 1],[1.5, 2.2]]"
 lawn_boolean_pointonline(lawn_point("[0, 0]"), lawn_linestring(l1))
 }
 \seealso{
-Other boolean functions: \code{\link{lawn_boolean_clockwise}},
-  \code{\link{lawn_boolean_contains}},
-  \code{\link{lawn_boolean_crosses}},
-  \code{\link{lawn_boolean_disjoint}},
-  \code{\link{lawn_boolean_overlap}},
-  \code{\link{lawn_boolean_within}}
+Other boolean functions: 
+\code{\link{lawn_boolean_clockwise}()},
+\code{\link{lawn_boolean_contains}()},
+\code{\link{lawn_boolean_crosses}()},
+\code{\link{lawn_boolean_disjoint}()},
+\code{\link{lawn_boolean_overlap}()},
+\code{\link{lawn_boolean_within}()}
 }
 \concept{boolean functions}

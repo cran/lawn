@@ -2,7 +2,7 @@
 #'
 #' Calculates the distance between two [data-Point]s in degress,
 #' radians, miles, or kilometers. Uses the
-#' [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula)
+#' Haversine formula 
 #' to account for global curvature.
 #'
 #' @export
@@ -42,6 +42,7 @@ lawn_distance <- function(from, to, units = 'kilometers', lint = FALSE) {
   }
   ct$eval(sprintf('var point1 = %s;', from))
   ct$eval(sprintf('var point2 = %s;', to))
-  ct$eval(sprintf("var avg = turf.distance(point1, point2, '%s');", units))
+  ct$eval(sprintf("var avg = turf.distance(point1, point2, {units:'%s'});",
+    units))
   ct$get("avg")
 }

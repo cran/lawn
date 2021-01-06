@@ -4,8 +4,15 @@
 \alias{lawn_isolines}
 \title{Generate Isolines}
 \usage{
-lawn_isolines(points, breaks, z, propertiesToAllIsolines = c(),
-  propertiesPerIsoline = list(), resolution = NULL, lint = FALSE)
+lawn_isolines(
+  points,
+  breaks,
+  z,
+  propertiesToAllIsolines = c(),
+  propertiesPerIsoline = list(),
+  resolution = NULL,
+  lint = FALSE
+)
 }
 \arguments{
 \item{points}{Input points. a point grid, e.g., output of \code{\link[=lawn_point_grid]{lawn_point_grid()}}}
@@ -35,7 +42,7 @@ A \link{data-FeatureCollection} of isolines
 }
 \description{
 Takes \link{data-Point}'s with z-values and an array of value
-breaks and generates \href{http://en.wikipedia.org/wiki/Isoline}{isolines}
+breaks and generates isolines
 }
 \details{
 Warning: this function seems to be broken, not sure why
@@ -54,10 +61,12 @@ lawn_isolines(pts, breaks, 'temperature') \%>\% view
 }
 }
 \seealso{
-Other interpolation: \code{\link{lawn_hex_grid}},
-  \code{\link{lawn_planepoint}},
-  \code{\link{lawn_point_grid}},
-  \code{\link{lawn_square_grid}}, \code{\link{lawn_tin}},
-  \code{\link{lawn_triangle_grid}}
+Other interpolation: 
+\code{\link{lawn_hex_grid}()},
+\code{\link{lawn_planepoint}()},
+\code{\link{lawn_point_grid}()},
+\code{\link{lawn_square_grid}()},
+\code{\link{lawn_tin}()},
+\code{\link{lawn_triangle_grid}()}
 }
 \concept{interpolation}

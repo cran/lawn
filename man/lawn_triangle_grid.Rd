@@ -4,15 +4,18 @@
 \alias{lawn_triangle_grid}
 \title{Create a TriangleGrid}
 \usage{
-lawn_triangle_grid(extent, cellWidth, units)
+lawn_triangle_grid(extent, cellSide, units = "kilometers", mask = NULL)
 }
 \arguments{
-\item{extent}{(numeric) Extent in \code{[minX, minY, maxX, maxY]} order.}
+\item{extent}{(numeric) Extent in \verb{[minX, minY, maxX, maxY]} order.}
 
-\item{cellWidth}{(integer) Width of each cell.}
+\item{cellSide}{(integer) dimension of each cell.}
 
-\item{units}{(character) Units to use for cellWidth, one of 'miles' or
-'kilometers'.}
+\item{units}{(character) Units to use for cellSide, one of miles,
+kilometers, degrees, radians}
+
+\item{mask}{(logical) if passed a Polygon or MultiPolygon, the grid
+Points will be created only inside it}
 }
 \value{
 \link{data-FeatureCollection} grid of \link{data-Polygon}'s
@@ -27,10 +30,12 @@ lawn_triangle_grid(c(-77.3876, 38.7198, -76.9482, 39.0277), 10, 'miles')
 lawn_triangle_grid(c(-77.3876, 38.7198, -76.9482, 39.0277), 3, 'miles')
 }
 \seealso{
-Other interpolation: \code{\link{lawn_hex_grid}},
-  \code{\link{lawn_isolines}},
-  \code{\link{lawn_planepoint}},
-  \code{\link{lawn_point_grid}},
-  \code{\link{lawn_square_grid}}, \code{\link{lawn_tin}}
+Other interpolation: 
+\code{\link{lawn_hex_grid}()},
+\code{\link{lawn_isolines}()},
+\code{\link{lawn_planepoint}()},
+\code{\link{lawn_point_grid}()},
+\code{\link{lawn_square_grid}()},
+\code{\link{lawn_tin}()}
 }
 \concept{interpolation}

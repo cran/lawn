@@ -7,15 +7,15 @@
 \title{R client for turf.js for geospatial analysis}
 \description{
 turf.js uses GeoJSON for all geographic data, and expects the data to be
-standard \href{http://en.wikipedia.org/wiki/World_Geodetic_System}{WGS84}
-longitude,latitude coordinates. See \url{http://geojson.io/} for a tool to
+standard WGS84
+longitude,latitude coordinates. See for a tool to
 easily create GeoJSON in a browser.
 }
 \seealso{
 \link{lawn-defunct}
 }
 \author{
-Scott Chamberlain (\email{myrmecocystus@gmail.com})
+Scott Chamberlain
 
 Jeff Hollister (\email{hollister.jeff@epa.gov})
 }

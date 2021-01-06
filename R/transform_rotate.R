@@ -13,8 +13,7 @@
 #' performance increase if true) (optional). Default: `FALSE`
 #' @template lint
 #' @return a rotated [data-Feature]
-#' @note all rotations follow the right-hand rule:
-#' <https://en.wikipedia.org/wiki/Right-hand_rule>
+#' @note all rotations follow the right-hand rule
 #' @examples
 #' x <- '{
 #'  "type": "Feature",
@@ -53,7 +52,7 @@ lawn_transform_rotate <- function(x, angle, pivot = c(0, 0),
   assert(angle, c('numeric', 'integer'))
   assert(pivot, c('numeric', 'integer'))
   assert(mutate, 'logical')
-  ct$eval(sprintf("var rot = turf.transformRotate(%s, %s, %s, %s);",
-                  x, angle, toj(pivot), toj(mutate)))
+  ct$eval(sprintf("var rot = turf.transformRotate(%s, %s, {pivot:%s, mutate:%s});",
+    x, angle, toj(pivot), toj(mutate)))
   as.f(ct$get("rot"))
 }
